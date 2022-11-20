@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson4：计算访问 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson4：计算访问" />
+<meta property="og:description" content="Lesson 4 Compute Access 对应官方文档：STK - Compute Access (agi.com) 本节讲述如何计算两个对象之间的访问 (Access)。该访问将会保存两个对象可以连通时相关的记录。比如空间" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-20T19:44:26+08:00" />
+<meta property="article:modified_time" content="2022-11-20T19:44:26+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson4：计算访问"/>
+<meta name="twitter:description" content="Lesson 4 Compute Access 对应官方文档：STK - Compute Access (agi.com) 本节讲述如何计算两个对象之间的访问 (Access)。该访问将会保存两个对象可以连通时相关的记录。比如空间"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/" /><link rel="next" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson5_report_and_graph_manager/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson4：计算访问",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson4_compute_access\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  1256 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson4_compute_access\/","datePublished": "2022-11-20T19:44:26+08:00","dateModified": "2022-11-20T19:44:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson4_compute_access/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson4_compute_access/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson4：计算访问</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-20">2022-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1256 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建访问">创建访问</a></li>
+    <li><a href="#查看访问计算结果">查看访问计算结果</a></li>
+    <li><a href="#保存报告快照">保存报告快照</a></li>
+    <li><a href="#查看-aer-报告">查看 AER 报告</a></li>
+    <li><a href="#存储视角">存储视角</a></li>
+    <li><a href="#连通时间在时间线视图的展示">连通时间在时间线视图的展示</a></li>
+    <li><a href="#报告自动更新">报告自动更新</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-4-compute-access">Lesson 4 Compute Access</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartAccess.htm%3FTocPath%3DTraining%7CLevel%25201%2520-%2520Beginner%2520Training%7C_____4" target="_blank" rel="noopener noreffer ">STK - Compute Access (agi.com)</a></p>
+<p>本节讲述如何计算两个对象之间的访问 (Access)。该访问将会保存两个对象可以连通时相关的记录。比如空间站途径地面站上空时，两个站点处于连通状态，超过一定范围，连通就会断开。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="创建访问">创建访问</h2>
+<p>点击 STK 工具栏 (STK Tools) 中的 Access 按钮。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/01.png, /img/STK_Tutorial/Lesson4/01.png 1.5x, /img/STK_Tutorial/Lesson4/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/01.png"
+        title="/img/STK_Tutorial/Lesson4/01.png" /></p>
+<p>或者点击 Analysis&gt;Access。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/02.png, /img/STK_Tutorial/Lesson4/02.png 1.5x, /img/STK_Tutorial/Lesson4/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/02.png"
+        title="/img/STK_Tutorial/Lesson4/02.png" /></p>
+<p>在弹出的窗口上方选择访问起点。这里以 Bloomington 的传感器为访问起点。点击 Select Object&gt;Bloomington&gt;Sensor1&gt;OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/03.png, /img/STK_Tutorial/Lesson4/03.png 1.5x, /img/STK_Tutorial/Lesson4/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/03.png"
+        title="/img/STK_Tutorial/Lesson4/03.png" /></p>
+<p>在下方选择访问终点。点击 Compute 进行计算。也可以同时选择多个对象作为终点，这时需要按住 Ctrl 再用鼠标左键进行选择。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/04.png, /img/STK_Tutorial/Lesson4/04.png 1.5x, /img/STK_Tutorial/Lesson4/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/04.png"
+        title="/img/STK_Tutorial/Lesson4/04.png" /></p>
+<h2 id="查看访问计算结果">查看访问计算结果</h2>
+<p>点击 Access 窗口中 Reports 部分的 Access&hellip; 按钮查看计算报告。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/05.png, /img/STK_Tutorial/Lesson4/05.png 1.5x, /img/STK_Tutorial/Lesson4/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/05.png"
+        title="/img/STK_Tutorial/Lesson4/05.png" /></p>
+<p>报告中显示了地面传感器探测到卫星的次数和时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/06.png, /img/STK_Tutorial/Lesson4/06.png 1.5x, /img/STK_Tutorial/Lesson4/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/06.png"
+        title="/img/STK_Tutorial/Lesson4/06.png" /></p>
+<p>该报告也是交互式的。比如，鼠标右键某一时间，点击 Start Time&gt;Set Animation Time，将该时间设定为当前动画的时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/07.png, /img/STK_Tutorial/Lesson4/07.png 1.5x, /img/STK_Tutorial/Lesson4/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/07.png"
+        title="/img/STK_Tutorial/Lesson4/07.png" /></p>
+<p>这样，在地图上就能看到空间站正在穿越传感器的探测范围。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/08.png, /img/STK_Tutorial/Lesson4/08.png 1.5x, /img/STK_Tutorial/Lesson4/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/08.png"
+        title="/img/STK_Tutorial/Lesson4/08.png" /></p>
+<p>为了使观测更加方便，我们可以先把视角聚焦 (Zoom to) 到地面位置，然后通过鼠标滚轮缩放到合适大小。按住鼠标左键移动鼠标调整视角。然后通过动画栏控制动画播放，进行观察。</p>
+<h2 id="保存报告快照">保存报告快照</h2>
+<p>在报告窗口中，点击 Save as quick report，保存报告快照。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/09.png, /img/STK_Tutorial/Lesson4/09.png 1.5x, /img/STK_Tutorial/Lesson4/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/09.png"
+        title="/img/STK_Tutorial/Lesson4/09.png" /></p>
+<p>点击上方数据栏 (data provider) 中的 报告快照管理器 (Quick Report Manager) 快速查看保存的快照。(Access 是高才保存快照的名称)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/10.png, /img/STK_Tutorial/Lesson4/10.png 1.5x, /img/STK_Tutorial/Lesson4/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/10.png"
+        title="/img/STK_Tutorial/Lesson4/10.png" /></p>
+<h2 id="查看-aer-报告">查看 AER 报告</h2>
+<p>在 Access 窗口中点击 AER。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/11.png, /img/STK_Tutorial/Lesson4/11.png 1.5x, /img/STK_Tutorial/Lesson4/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/11.png"
+        title="/img/STK_Tutorial/Lesson4/11.png" /></p>
+<p>点击后，弹出 AER 报告的详细信息。该报告中记录了空间站相对于地面传感器的方位角 (Azimuth)、俯仰角 (Elevation) 和 距离 (Range) 信息。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/12.png, /img/STK_Tutorial/Lesson4/12.png 1.5x, /img/STK_Tutorial/Lesson4/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/12.png"
+        title="/img/STK_Tutorial/Lesson4/12.png" /></p>
+<p>上方的 Step 是每次记录的间隔时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/13.png, /img/STK_Tutorial/Lesson4/13.png 1.5x, /img/STK_Tutorial/Lesson4/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/13.png"
+        title="/img/STK_Tutorial/Lesson4/13.png" /></p>
+<p>点击 Show Step Value，可以看到本次报告以 60 s 为记录的时间间隔。Step 可以手动进行调整，调整后按下回车，下方报告会根据新的 Step 值而改变。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/14.png, /img/STK_Tutorial/Lesson4/14.png 1.5x, /img/STK_Tutorial/Lesson4/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/14.png"
+        title="/img/STK_Tutorial/Lesson4/14.png" /></p>
+<h2 id="存储视角">存储视角</h2>
+<p>如果我们总是需要用到一些固定的视角，但是又不想每次观看该视角都要对地图进行重新调整。可以使用存储视角的功能。</p>
+<p>首先，在地图上调整好想要保存的视角。点击上方的 Stored Views 按钮。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/15.png, /img/STK_Tutorial/Lesson4/15.png 1.5x, /img/STK_Tutorial/Lesson4/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/15.png"
+        title="/img/STK_Tutorial/Lesson4/15.png" /></p>
+<p>在弹出的窗口中点击 New 以新建视角。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/16.png, /img/STK_Tutorial/Lesson4/16.png 1.5x, /img/STK_Tutorial/Lesson4/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/16.png"
+        title="/img/STK_Tutorial/Lesson4/16.png" /></p>
+<p>双击新视角的 View Name 栏，重命名该视角。如本例将该视角命名为 AccessIntervals。点击 OK 保存。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/17.png, /img/STK_Tutorial/Lesson4/17.png 1.5x, /img/STK_Tutorial/Lesson4/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/17.png"
+        title="/img/STK_Tutorial/Lesson4/17.png" /></p>
+<p>下次使用时，点击 Store Views 右侧的黑箭头，就会展开已保存的视角。点击视角名称以快速返回对应视角。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/18.png, /img/STK_Tutorial/Lesson4/18.png 1.5x, /img/STK_Tutorial/Lesson4/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/18.png"
+        title="/img/STK_Tutorial/Lesson4/18.png" /></p>
+<h2 id="连通时间在时间线视图的展示">连通时间在时间线视图的展示</h2>
+<p>如果我们想要对地面站能够探测到天空站的时间有一个更感性的认知，可以在时间线视角添加访问连通的时间。在计算访问后，该时间会自动加入时间线视图中。如下图所示，红框框出的轨道中，橙色的部分即为连通时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/19.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/19.png, /img/STK_Tutorial/Lesson4/19.png 1.5x, /img/STK_Tutorial/Lesson4/19.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/19.png"
+        title="/img/STK_Tutorial/Lesson4/19.png" /></p>
+<p>如果该轨道没有自动显示，也可以手动对其进行添加。
+点击 Add Time Componets。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/20.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/20.png, /img/STK_Tutorial/Lesson4/20.png 1.5x, /img/STK_Tutorial/Lesson4/20.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/20.png"
+        title="/img/STK_Tutorial/Lesson4/20.png" /></p>
+<p>在弹出的窗口中选中刚才计算出的访问，右侧点击 AccessIntervals。点击 OK 插入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/21.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/21.png, /img/STK_Tutorial/Lesson4/21.png 1.5x, /img/STK_Tutorial/Lesson4/21.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/21.png"
+        title="/img/STK_Tutorial/Lesson4/21.png" /></p>
+<h2 id="报告自动更新">报告自动更新</h2>
+<p>当访问两端的对象属性进行更改后，访问的计算结果可以自动更新。
+以上述地面站和空间站之间的访问为例。调整地面传感器的探测范围为 1500 km。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/22.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/22.png, /img/STK_Tutorial/Lesson4/22.png 1.5x, /img/STK_Tutorial/Lesson4/22.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/22.png"
+        title="/img/STK_Tutorial/Lesson4/22.png" /></p>
+<p>调整后，可以看到下方的时间线视图进行了自动更新。(橙色的连通时间变窄了，因为探测范围变小了）</p>
+<p>对于之前计算得出的报告，也会自动进行更新。也可以点击更新 (Refresh) 按钮以获得最新的计算结果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson4/23.png"
+        data-srcset="/img/STK_Tutorial/Lesson4/23.png, /img/STK_Tutorial/Lesson4/23.png 1.5x, /img/STK_Tutorial/Lesson4/23.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson4/23.png"
+        title="/img/STK_Tutorial/Lesson4/23.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson4_compute_access/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" data-title="【STK11官方Tutorial学习笔记】Lesson4：计算访问" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" data-title="【STK11官方Tutorial学习笔记】Lesson4：计算访问"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" data-title="【STK11官方Tutorial学习笔记】Lesson4：计算访问"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/" data-title="【STK11官方Tutorial学习笔记】Lesson4：计算访问"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/stk_lesson3_object_properties/" class="prev" rel="prev" title="【STK11官方Tutorial学习笔记】Lesson3：对象属性"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【STK11官方Tutorial学习笔记】Lesson3：对象属性</a>
+            <a href="/zh-cn/posts/stk_lesson5_report_and_graph_manager/" class="next" rel="next" title="【STK11官方Tutorial学习笔记】Lesson5：报告和图表管理器">【STK11官方Tutorial学习笔记】Lesson5：报告和图表管理器<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象" />
+<meta property="og:description" content="Lesson 2 Insert And Configure STK Objects 对应文档：STK - Insert STK Objects (agi.com) 本节讲述如何插入并配置一些典型的 STK 对象。 插入地面对象 点击上方菜单栏 Insert&gt;New 可选择的地面站点如：设施 (Fac" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-20T18:01:27+08:00" />
+<meta property="article:modified_time" content="2022-11-20T18:01:27+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象"/>
+<meta name="twitter:description" content="Lesson 2 Insert And Configure STK Objects 对应文档：STK - Insert STK Objects (agi.com) 本节讲述如何插入并配置一些典型的 STK 对象。 插入地面对象 点击上方菜单栏 Insert&gt;New 可选择的地面站点如：设施 (Fac"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" /><link rel="next" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson2_insert_and_configure_stk_objects\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  2279 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson2_insert_and_configure_stk_objects\/","datePublished": "2022-11-20T18:01:27+08:00","dateModified": "2022-11-20T18:01:27+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-20">2022-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2279 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#插入地面对象">插入地面对象</a>
+      <ul>
+        <li><a href="#插入地点">插入地点</a></li>
+        <li><a href="#插入设施">插入设施</a></li>
+        <li><a href="#对象聚焦">对象聚焦</a></li>
+      </ul>
+    </li>
+    <li><a href="#插入卫星">插入卫星</a>
+      <ul>
+        <li><a href="#从数据库导入">从数据库导入</a></li>
+        <li><a href="#从轨道向导中导入">从轨道向导中导入</a></li>
+        <li><a href="#对象聚焦及动画演示">对象聚焦及动画演示</a></li>
+      </ul>
+    </li>
+    <li><a href="#插入飞机航线">插入飞机航线</a>
+      <ul>
+        <li><a href="#插入默认航线">插入默认航线</a></li>
+      </ul>
+    </li>
+    <li><a href="#插入导弹">插入导弹</a>
+      <ul>
+        <li><a href="#定义导弹属性">定义导弹属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#插入传感器">插入传感器</a>
+      <ul>
+        <li><a href="#插入默认传感器">插入默认传感器</a></li>
+      </ul>
+    </li>
+    <li><a href="#时间线视图">时间线视图</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-2-insert-and-configure-stk-objects">Lesson 2 Insert And Configure STK Objects</h1>
+<p>对应文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartInsertObjects.htm%3FTocPath%3DTraining%7CLevel%25201%2520-%2520Beginner%2520Training%7C_____2" target="_blank" rel="noopener noreffer ">STK - Insert STK Objects (agi.com)</a></p>
+<p>本节讲述如何插入并配置一些典型的 STK 对象。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="插入地面对象">插入地面对象</h2>
+<p>点击上方菜单栏 Insert&gt;New</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/01.png, /img/STK_Tutorial/Lesson2/01.png 1.5x, /img/STK_Tutorial/Lesson2/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/01.png"
+        title="/img/STK_Tutorial/Lesson2/01.png" /></p>
+<p>可选择的地面站点如：设施 (Facility)、地点 (Place) 和 目标 (Target)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/02.png, /img/STK_Tutorial/Lesson2/02.png 1.5x, /img/STK_Tutorial/Lesson2/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/02.png"
+        title="/img/STK_Tutorial/Lesson2/02.png" /></p>
+<h3 id="插入地点">插入地点</h3>
+<h4 id="使用本地数据库方式导入">使用本地数据库方式导入</h4>
+<p>这里以 Place为例。首先选择左侧的 Place，右边的导入方法选择 From City Database。点击下方 Insert进行插入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/03.png, /img/STK_Tutorial/Lesson2/03.png 1.5x, /img/STK_Tutorial/Lesson2/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/03.png"
+        title="/img/STK_Tutorial/Lesson2/03.png" /></p>
+<p>在新弹出的窗口中输入城市名称，点击 search 进行搜索。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/04.png, /img/STK_Tutorial/Lesson2/04.png 1.5x, /img/STK_Tutorial/Lesson2/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/04.png"
+        title="/img/STK_Tutorial/Lesson2/04.png" /></p>
+<p>右侧空白位置会显示搜索结果。选择想要的结果，点击 Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/05.png, /img/STK_Tutorial/Lesson2/05.png 1.5x, /img/STK_Tutorial/Lesson2/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/05.png"
+        title="/img/STK_Tutorial/Lesson2/05.png" /></p>
+<p>插入成功后，在左侧对象浏览器 (Object Browser) 会显示当前场景中的物体。同时，地图上也会标记出该处地点。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/06.png, /img/STK_Tutorial/Lesson2/06.png 1.5x, /img/STK_Tutorial/Lesson2/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/06.png"
+        title="/img/STK_Tutorial/Lesson2/06.png" /></p>
+<h4 id="联网导入">联网导入</h4>
+<p>如果当前设备处于联网状态，在插入 STK 对象时，插入方法可以选择 Search by Address，进行联网导入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/07.png, /img/STK_Tutorial/Lesson2/07.png 1.5x, /img/STK_Tutorial/Lesson2/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/07.png"
+        title="/img/STK_Tutorial/Lesson2/07.png" /></p>
+<p>点击 Insert 后，弹出 Insert by Address 窗口。在上方搜索栏中输入你想要查找的地点。比如本例查找 white house，下方则会返回联网搜索到的结果。选择你想要的结果，点击 Insert Place(s) 进行插入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/08.png, /img/STK_Tutorial/Lesson2/08.png 1.5x, /img/STK_Tutorial/Lesson2/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/08.png"
+        title="/img/STK_Tutorial/Lesson2/08.png" /></p>
+<p>同样地，地图上会显示插入地点的标记。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/09.png, /img/STK_Tutorial/Lesson2/09.png 1.5x, /img/STK_Tutorial/Lesson2/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/09.png"
+        title="/img/STK_Tutorial/Lesson2/09.png" /></p>
+<h3 id="插入设施">插入设施</h3>
+<p>在插入 STK 目标时，选择 Facility&gt;From Standard Object Database。点击 Insert 进行插入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/10.png, /img/STK_Tutorial/Lesson2/10.png 1.5x, /img/STK_Tutorial/Lesson2/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/10.png"
+        title="/img/STK_Tutorial/Lesson2/10.png" /></p>
+<p>AGI 拥有一个地面设施的数据库。在安装 STK 时，该数据库已经安装至本地。除此之外，也可以选择联网搜索。</p>
+<p>在新弹出的窗口中，向 Name 栏输入想要搜索设施的名称，点击下方 Search，右侧将返回搜索结果。结果将包含该设施的相关信息，包括该条结果的数据来源 (本地数据库或联网数据)。</p>
+<p>单击你想要的数据，点击下方 Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/11.png, /img/STK_Tutorial/Lesson2/11.png 1.5x, /img/STK_Tutorial/Lesson2/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/11.png"
+        title="/img/STK_Tutorial/Lesson2/11.png" /></p>
+<p>地图中将会显示插入的结果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/12.png, /img/STK_Tutorial/Lesson2/12.png 1.5x, /img/STK_Tutorial/Lesson2/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/12.png"
+        title="/img/STK_Tutorial/Lesson2/12.png" /></p>
+<h3 id="对象聚焦">对象聚焦</h3>
+<p>STK 可以帮助我们快速放大到某一对象所在的地图位置。在对象浏览器中，右键你想要聚焦的对象，点击 Zoom To。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/13.png, /img/STK_Tutorial/Lesson2/13.png 1.5x, /img/STK_Tutorial/Lesson2/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/13.png"
+        title="/img/STK_Tutorial/Lesson2/13.png" /></p>
+<p><em><strong>注意：这里可能遇到地图没有加载出来的问题如下图所示</strong></em></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/14.png, /img/STK_Tutorial/Lesson2/14.png 1.5x, /img/STK_Tutorial/Lesson2/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/14.png"
+        title="/img/STK_Tutorial/Lesson2/14.png" /></p>
+<p>我这边是网络问题所致。开一下梯子，重新进一下软件就好了。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/15.png, /img/STK_Tutorial/Lesson2/15.png 1.5x, /img/STK_Tutorial/Lesson2/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/15.png"
+        title="/img/STK_Tutorial/Lesson2/15.png" /></p>
+<p>由于当前时间 Bloomington 是黑天，所以显示看起来比较黑。</p>
+<h2 id="插入卫星">插入卫星</h2>
+<h3 id="从数据库导入">从数据库导入</h3>
+<p>菜单栏选择 Insert&gt;New。在弹出的窗口中选择 Satellite&gt;From Standard Object Database&gt;Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/16.png, /img/STK_Tutorial/Lesson2/16.png 1.5x, /img/STK_Tutorial/Lesson2/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/16.png"
+        title="/img/STK_Tutorial/Lesson2/16.png" /></p>
+<p>AGI 每天会更新两次卫星数据库。点击菜单栏 Utilities&gt;Data Update 以更新数据。</p>
+<p>在弹出的窗口中，依次输入卫星名称，点击搜索，选择你想要的卫星，最后点击插入。如本例搜索名为 geoeye 的卫星。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/17.png, /img/STK_Tutorial/Lesson2/17.png 1.5x, /img/STK_Tutorial/Lesson2/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/17.png"
+        title="/img/STK_Tutorial/Lesson2/17.png" /></p>
+<p>接着，搜索 ISS 空间站。该项有很多搜索结果，我想选择编号为25544的结果。点击 Space Surveillance Catalog Number，对结果进行升序排序。选择编号为25544的卫星。(任意一个)</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/18.png, /img/STK_Tutorial/Lesson2/18.png 1.5x, /img/STK_Tutorial/Lesson2/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/18.png"
+        title="/img/STK_Tutorial/Lesson2/18.png" /></p>
+<p>导入后，在对象浏览器和地图中都能看到结果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/19.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/19.png, /img/STK_Tutorial/Lesson2/19.png 1.5x, /img/STK_Tutorial/Lesson2/19.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/19.png"
+        title="/img/STK_Tutorial/Lesson2/19.png" /></p>
+<h3 id="从轨道向导中导入">从轨道向导中导入</h3>
+<p>菜单栏选择 Insert&gt;New。在弹出的窗口中选择 Satellite&gt;Orbit Wizard&gt;Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/20.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/20.png, /img/STK_Tutorial/Lesson2/20.png 1.5x, /img/STK_Tutorial/Lesson2/20.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/20.png"
+        title="/img/STK_Tutorial/Lesson2/20.png" /></p>
+<p>使用该工具可以自定义设计卫星运行轨道。</p>
+<p>在该向导中，可以选择卫星类型，设置卫星名称，定义卫星的倾角 (Inclination)、海拔 (Altitude) 和 升交点 (RAAN)。点击OK进行导入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/21.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/21.png, /img/STK_Tutorial/Lesson2/21.png 1.5x, /img/STK_Tutorial/Lesson2/21.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/21.png"
+        title="/img/STK_Tutorial/Lesson2/21.png" /></p>
+<h3 id="对象聚焦及动画演示">对象聚焦及动画演示</h3>
+<p>与地面聚焦的方式相同，在对象浏览器中，右键卫星对象，点击 Zoom to。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/22.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/22.png, /img/STK_Tutorial/Lesson2/22.png 1.5x, /img/STK_Tutorial/Lesson2/22.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/22.png"
+        title="/img/STK_Tutorial/Lesson2/22.png" /></p>
+<p>此时，地图视野聚焦到空间站位置。可通过 Lesson 1 中介绍的地图控制方法调整目标的视角。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/23.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/23.png, /img/STK_Tutorial/Lesson2/23.png 1.5x, /img/STK_Tutorial/Lesson2/23.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/23.png"
+        title="/img/STK_Tutorial/Lesson2/23.png" /></p>
+<p>通过动画栏中的播放按钮开始动画。此时，镜头会跟随被聚焦的空间站进行运动。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/24.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/24.png, /img/STK_Tutorial/Lesson2/24.png 1.5x, /img/STK_Tutorial/Lesson2/24.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/24.png"
+        title="/img/STK_Tutorial/Lesson2/24.png" /></p>
+<h2 id="插入飞机航线">插入飞机航线</h2>
+<h3 id="插入默认航线">插入默认航线</h3>
+<p>菜单栏点击 Insert&gt;New。弹出窗口中依次点击 Aircraft&gt;Insert Default&gt;Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/25.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/25.png, /img/STK_Tutorial/Lesson2/25.png 1.5x, /img/STK_Tutorial/Lesson2/25.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/25.png"
+        title="/img/STK_Tutorial/Lesson2/25.png" /></p>
+<p>点击后，对象浏览器会新增刚插入的飞机。</p>
+<p>为编辑航线，首先点击 3D 地图窗口，使该窗口处于激活状态。然后从上方的对象编辑器中选择刚添加的飞机。点击选项框左侧黄色箱子按钮 (Object Edit Start)，开始编辑航线。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/26.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/26.png, /img/STK_Tutorial/Lesson2/26.png 1.5x, /img/STK_Tutorial/Lesson2/26.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/26.png"
+        title="/img/STK_Tutorial/Lesson2/26.png" /></p>
+<p>在地图中放大你想要添加航线的位置。按住 Shift 和鼠标左键以添加节点。</p>
+<p>航线编辑操作可分为三类：</p>
+<ul>
+<li>添加 (Add)：按住 Shift 点击鼠标左键。</li>
+<li>调整 (Modify)：使用鼠标左键按住并移动需要调整的节点。</li>
+<li>删除 (Remove)：按住 Shift，鼠标左键点击需要删除的节点。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/27.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/27.png, /img/STK_Tutorial/Lesson2/27.png 1.5x, /img/STK_Tutorial/Lesson2/27.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/27.png"
+        title="/img/STK_Tutorial/Lesson2/27.png" /></p>
+<p>点击对象编辑栏的绿色按钮 (Object Edit Accept) 以保存更改，或者红色按钮 (Object Edit Cancel) 以取消更改。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/28.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/28.png, /img/STK_Tutorial/Lesson2/28.png 1.5x, /img/STK_Tutorial/Lesson2/28.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/28.png"
+        title="/img/STK_Tutorial/Lesson2/28.png" /></p>
+<h2 id="插入导弹">插入导弹</h2>
+<h3 id="定义导弹属性">定义导弹属性</h3>
+<p>菜单栏点击 Insert&gt;New。在弹出窗口中依次点击 Missile&gt;Define Properties&gt;Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/29.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/29.png, /img/STK_Tutorial/Lesson2/29.png 1.5x, /img/STK_Tutorial/Lesson2/29.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/29.png"
+        title="/img/STK_Tutorial/Lesson2/29.png" /></p>
+<p>在弹出的窗口中设置发射地点 (Launch) 的经纬度和海拔，以及攻击地点 (Impact) 的经纬度和海拔。比如本例默认发射点经纬度为0，攻击点的经纬度分别设置为-20。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/30.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/30.png, /img/STK_Tutorial/Lesson2/30.png 1.5x, /img/STK_Tutorial/Lesson2/30.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/30.png"
+        title="/img/STK_Tutorial/Lesson2/30.png" /></p>
+<p>插入后，地图将显示导弹的轨迹。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/31.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/31.png, /img/STK_Tutorial/Lesson2/31.png 1.5x, /img/STK_Tutorial/Lesson2/31.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/31.png"
+        title="/img/STK_Tutorial/Lesson2/31.png" /></p>
+<h2 id="插入传感器">插入传感器</h2>
+<p>传感器 (sensor) 也被称作附件 (attached) 或者 子对象 (Subobject)。它被用于记录父对象的相关信息。本节中，将举例插入一个空中对象的传感器和一个地面对象的传感器。</p>
+<h3 id="插入默认传感器">插入默认传感器</h3>
+<p>点击菜单栏 Insert&gt;New。在弹出的窗口中选择 Sensor&gt;Insert Default&gt;Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/32.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/32.png, /img/STK_Tutorial/Lesson2/32.png 1.5x, /img/STK_Tutorial/Lesson2/32.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/32.png"
+        title="/img/STK_Tutorial/Lesson2/32.png" /></p>
+<p>点击后，弹出对象选择窗口。选择 Bloomington 作为父对象，点击 OK 插入。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/33.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/33.png, /img/STK_Tutorial/Lesson2/33.png 1.5x, /img/STK_Tutorial/Lesson2/33.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/33.png"
+        title="/img/STK_Tutorial/Lesson2/33.png" /></p>
+<p>插入成功后，对象浏览器中的地面地点 Bloomington 下会多出来一个传感器。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/34.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/34.png, /img/STK_Tutorial/Lesson2/34.png 1.5x, /img/STK_Tutorial/Lesson2/34.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/34.png"
+        title="/img/STK_Tutorial/Lesson2/34.png" /></p>
+<p>同理，以 CircularSat 为父对象插入默认传感器。</p>
+<h2 id="时间线视图">时间线视图</h2>
+<p>在 Lesson1 中动画控制小节，我们简单接触到了时间线视图 (Timelin View)。现在，我们有了更多的对象，让我们将对象与其时间线结合起来。</p>
+<p>如果软件下方没有显示时间线视图，首先点击菜单栏 View&gt;Timeline View。</p>
+<p>点击时间线视图中的 Add Time Components 以添加时间组件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/35.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/35.png, /img/STK_Tutorial/Lesson2/35.png 1.5x, /img/STK_Tutorial/Lesson2/35.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/35.png"
+        title="/img/STK_Tutorial/Lesson2/35.png" /></p>
+<p>这里以飞机航线为例。在弹出窗口中选择 Aircraft1&gt;AvailabilityTimeSpan&gt;OK。即选择飞机起飞到降落的这段时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/36.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/36.png, /img/STK_Tutorial/Lesson2/36.png 1.5x, /img/STK_Tutorial/Lesson2/36.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/36.png"
+        title="/img/STK_Tutorial/Lesson2/36.png" /></p>
+<p>点击后，时间线视图中将会多出飞机时间线的轨道。</p>
+<p>当前时间线视图的宽度，是我们创建场景时设定的起始时间。我们可以将宽度设定为某一对象的时间跨度，方便我们观察该对象在该段时间内的运动情况。如下图，右键飞机的时间线轨道，点击 Center。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/37.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/37.png, /img/STK_Tutorial/Lesson2/37.png 1.5x, /img/STK_Tutorial/Lesson2/37.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/37.png"
+        title="/img/STK_Tutorial/Lesson2/37.png" /></p>
+<p>此时，时间线视图的时间跨度，将会以飞机对象为准。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/38.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/38.png, /img/STK_Tutorial/Lesson2/38.png 1.5x, /img/STK_Tutorial/Lesson2/38.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/38.png"
+        title="/img/STK_Tutorial/Lesson2/38.png" /></p>
+<p>拖动时间线上的滑动按钮，以观察对象在这段时间的运动情况。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson2/39.png"
+        data-srcset="/img/STK_Tutorial/Lesson2/39.png, /img/STK_Tutorial/Lesson2/39.png 1.5x, /img/STK_Tutorial/Lesson2/39.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson2/39.png"
+        title="/img/STK_Tutorial/Lesson2/39.png" /></p>
+<p>为返回原始的时间线跨度，右击场景 (STK_Fundamentals Availability) 的时间线轨道，点击 Center。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" data-title="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" data-title="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" data-title="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" data-title="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/stk_lesson1_create_a_new_scenario/" class="prev" rel="prev" title="【STK11官方Tutorial学习笔记】Lesson1：创建新场景"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【STK11官方Tutorial学习笔记】Lesson1：创建新场景</a>
+            <a href="/zh-cn/posts/stk_lesson3_object_properties/" class="next" rel="next" title="【STK11官方Tutorial学习笔记】Lesson3：对象属性">【STK11官方Tutorial学习笔记】Lesson3：对象属性<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson1：创建新场景 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson1：创建新场景" />
+<meta property="og:description" content="Lesson 1 Create A New Scenario 对应官方文档：STK - Model Complex Systems (agi.com) 本节讲述如何在 STK 中创建一个新场景。该概念类似于 Adobe 系列软件的工程文件。 创建新场景 (Scenario) 双击STK桌面图标" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-20T17:45:54+08:00" />
+<meta property="article:modified_time" content="2022-11-20T17:45:54+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson1：创建新场景"/>
+<meta name="twitter:description" content="Lesson 1 Create A New Scenario 对应官方文档：STK - Model Complex Systems (agi.com) 本节讲述如何在 STK 中创建一个新场景。该概念类似于 Adobe 系列软件的工程文件。 创建新场景 (Scenario) 双击STK桌面图标"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E8%A6%81%E5%A4%9A%E4%B9%85/" /><link rel="next" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson1：创建新场景",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson1_create_a_new_scenario\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  1064 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson1_create_a_new_scenario\/","datePublished": "2022-11-20T17:45:54+08:00","dateModified": "2022-11-20T17:45:54+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson1_create_a_new_scenario/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson1_create_a_new_scenario/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson1：创建新场景</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-20">2022-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1064 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建新场景-scenario">创建新场景 (Scenario)</a></li>
+    <li><a href="#工作区的简单操作">工作区的简单操作</a></li>
+    <li><a href="#保存场景">保存场景</a></li>
+    <li><a href="#熟悉地图控制">熟悉地图控制</a></li>
+    <li><a href="#熟悉动画控制">熟悉动画控制</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-1-create-a-new-scenario">Lesson 1 Create A New Scenario</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartBuildScenarios.htm%3FTocPath%3DTraining%7CLevel%25201%2520-%2520Beginner%2520Training%7C_____1" target="_blank" rel="noopener noreffer ">STK - Model Complex Systems (agi.com)</a></p>
+<p>本节讲述如何在 STK 中创建一个新场景。该概念类似于 Adobe 系列软件的工程文件。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="创建新场景-scenario">创建新场景 (Scenario)</h2>
+<p>双击STK桌面图标，打开软件后可看到如下窗口。我们可以从中选择创建新场景、打开已有场景或查看使用教程及帮助等。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/01.png, /img/STK_Tutorial/Lesson1/01.png 1.5x, /img/STK_Tutorial/Lesson1/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/01.png"
+        title="/img/STK_Tutorial/Lesson1/01.png" /></p>
+<p>点击创建新场景，此时会弹出新的方案向导。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/02.png, /img/STK_Tutorial/Lesson1/02.png 1.5x, /img/STK_Tutorial/Lesson1/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/02.png"
+        title="/img/STK_Tutorial/Lesson1/02.png" /></p>
+<ul>
+<li>输入该场景的名称，并做出一些有意义相关描述。以便下次使用时，能够快速找到并回忆起该场景的功能。</li>
+<li>接下来选择保存场景的目录，默认目录与安装时的选项保持一致。通常在C盘的Documents文件夹当中。</li>
+<li>选择场景的起始时间。</li>
+<li>创建场景。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/03.png, /img/STK_Tutorial/Lesson1/03.png 1.5x, /img/STK_Tutorial/Lesson1/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/03.png"
+        title="/img/STK_Tutorial/Lesson1/03.png" /></p>
+<p>成功后得到的界面如下图所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/04.png, /img/STK_Tutorial/Lesson1/04.png 1.5x, /img/STK_Tutorial/Lesson1/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/04.png"
+        title="/img/STK_Tutorial/Lesson1/04.png" /></p>
+<h2 id="工作区的简单操作">工作区的简单操作</h2>
+<p>首先关掉 Inset STK Objects 窗口，这个功能会在之后用到。</p>
+<p>最大化软件窗口。红框标记出的区域被称为集成工作区 (Integrated Workspace)，后文中简称为工作区。工作区用于展示我们用到的功能窗口 (window)。下图中就有3D和2D地图两个工作窗口。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/05.png, /img/STK_Tutorial/Lesson1/05.png 1.5x, /img/STK_Tutorial/Lesson1/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/05.png"
+        title="/img/STK_Tutorial/Lesson1/05.png" /></p>
+<p>点击上方菜单栏 (Menu bar) 中的 Window&gt;Tile Vertically 用以平铺窗口。除此之外，也可以选择垂直平铺窗口 (Tile Horizontally)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/06.png, /img/STK_Tutorial/Lesson1/06.png 1.5x, /img/STK_Tutorial/Lesson1/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/06.png"
+        title="/img/STK_Tutorial/Lesson1/06.png" /></p>
+<p>下方的选项卡 (Tab) 栏会显示当前工作区中存在的窗口。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/07.png, /img/STK_Tutorial/Lesson1/07.png 1.5x, /img/STK_Tutorial/Lesson1/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/07.png"
+        title="/img/STK_Tutorial/Lesson1/07.png" /></p>
+<h2 id="保存场景">保存场景</h2>
+<p>点击菜单栏中的 File 按钮，选择 Save as</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/08.png, /img/STK_Tutorial/Lesson1/08.png 1.5x, /img/STK_Tutorial/Lesson1/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/08.png"
+        title="/img/STK_Tutorial/Lesson1/08.png" /></p>
+<p>可以看到 STK 已经自动在创建新场景时设置的“保存场景的目录”下，创建了一个与当前场景名称相同的文件夹。单击保存，将场景保存在该文件夹下。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/09.png, /img/STK_Tutorial/Lesson1/09.png 1.5x, /img/STK_Tutorial/Lesson1/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/09.png"
+        title="/img/STK_Tutorial/Lesson1/09.png" /></p>
+<p>保存后会得到如下所示的文件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/10.png, /img/STK_Tutorial/Lesson1/10.png 1.5x, /img/STK_Tutorial/Lesson1/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/10.png"
+        title="/img/STK_Tutorial/Lesson1/10.png" /></p>
+<p>当前场景中的任何窗口和插入的物体等都会被保存。所以在进行新的任务场景的开发时，最好选择新建新的场景 （也就是新建一个文件夹），以免之前场景中的相应文件被覆盖掉。</p>
+<h2 id="熟悉地图控制">熟悉地图控制</h2>
+<p>在2D地图窗口中，按住鼠标左键左右移动以移动地图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/11.png, /img/STK_Tutorial/Lesson1/11.png 1.5x, /img/STK_Tutorial/Lesson1/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/11.png"
+        title="/img/STK_Tutorial/Lesson1/11.png" /></p>
+<p>使用鼠标滚轮上滑或放大镜 (zoom in) 来放大地图。使用放大镜时，框选出指定放大的地点。同样地，使用鼠标滚轮下滑或 zoom out 按钮可以缩小地图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/12.png, /img/STK_Tutorial/Lesson1/12.png 1.5x, /img/STK_Tutorial/Lesson1/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/12.png"
+        title="/img/STK_Tutorial/Lesson1/12.png" /></p>
+<p>在3D地图中，同样可以按住鼠标左键移动以旋转地球仪。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/13.png, /img/STK_Tutorial/Lesson1/13.png 1.5x, /img/STK_Tutorial/Lesson1/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/13.png"
+        title="/img/STK_Tutorial/Lesson1/13.png" /></p>
+<p>使用鼠标滚轮缩放地球仪。除此之外还可以按住鼠标右键上下移动以缩放地球仪。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/14.png, /img/STK_Tutorial/Lesson1/14.png 1.5x, /img/STK_Tutorial/Lesson1/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/14.png"
+        title="/img/STK_Tutorial/Lesson1/14.png" /></p>
+<p>使用放大镜将视角固定在某一区域。放大后，左键功能将与之前不同，按住左键移动鼠标将围绕该区域进行旋转。如果还想使用之前平移功能，需要按住鼠标左键的同时，按住shift健。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/15.png, /img/STK_Tutorial/Lesson1/15.png 1.5x, /img/STK_Tutorial/Lesson1/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/15.png"
+        title="/img/STK_Tutorial/Lesson1/15.png" /></p>
+<p>使用 Home View 按钮恢复最原始的视图。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/16.png, /img/STK_Tutorial/Lesson1/16.png 1.5x, /img/STK_Tutorial/Lesson1/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/16.png"
+        title="/img/STK_Tutorial/Lesson1/16.png" /></p>
+<h2 id="熟悉动画控制">熟悉动画控制</h2>
+<p>使用动画栏 (Animation) 中的播放按钮，地球会按照创建场景时设置的开始时间为起点进行旋转。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/17.png, /img/STK_Tutorial/Lesson1/17.png 1.5x, /img/STK_Tutorial/Lesson1/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/17.png"
+        title="/img/STK_Tutorial/Lesson1/17.png" /></p>
+<p>动画栏中的按钮依次为：重置 (Reset)、后退一帧 (Step in Reverse)、倒放 (Reverse)、暂停 (Pause)、播放 (start)、前进一帧 (Step forward)、减速 (Decrease Time Step) 和 加速 (Increase Time Step)。</p>
+<p>使用下方的时间线视图 (Timeline View) 调整时间。拖住红框标记的按钮并移动以调整时间。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson1/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson1/18.png, /img/STK_Tutorial/Lesson1/18.png 1.5x, /img/STK_Tutorial/Lesson1/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson1/18.png"
+        title="/img/STK_Tutorial/Lesson1/18.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson1_create_a_new_scenario/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" data-title="【STK11官方Tutorial学习笔记】Lesson1：创建新场景" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" data-title="【STK11官方Tutorial学习笔记】Lesson1：创建新场景"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" data-title="【STK11官方Tutorial学习笔记】Lesson1：创建新场景"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson1_create_a_new_scenario/" data-title="【STK11官方Tutorial学习笔记】Lesson1：创建新场景"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E8%A6%81%E5%A4%9A%E4%B9%85/" class="prev" rel="prev" title="从0到1搭建人工智能训练平台要多久？"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>从0到1搭建人工智能训练平台要多久？</a>
+            <a href="/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/" class="next" rel="next" title="【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象">【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

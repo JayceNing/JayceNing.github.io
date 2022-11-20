@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson7：电影时间线 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson7：电影时间线" />
+<meta property="og:description" content="Lesson 7 The Movie Timeline 对应官方文档：STK - Share Your Work (agi.com) 本节介绍如何使用电影时间线向导 (Movie Timeline Wizard) 在 STK 中对场景进行录制。以空间站围绕地球运动为例。 场景布置 首先，在" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-20T20:18:30+08:00" />
+<meta property="article:modified_time" content="2022-11-20T20:18:30+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson7：电影时间线"/>
+<meta name="twitter:description" content="Lesson 7 The Movie Timeline 对应官方文档：STK - Share Your Work (agi.com) 本节介绍如何使用电影时间线向导 (Movie Timeline Wizard) 在 STK 中对场景进行录制。以空间站围绕地球运动为例。 场景布置 首先，在"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson6_connect_and_stk_object_model/" /><link rel="next" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson8_terrain_and_chain/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson7：电影时间线",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson7_the_movie_timeline\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  1100 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson7_the_movie_timeline\/","datePublished": "2022-11-20T20:18:30+08:00","dateModified": "2022-11-20T20:18:30+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson7_the_movie_timeline/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson7_the_movie_timeline/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson7：电影时间线</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-20">2022-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1100 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#场景布置">场景布置</a></li>
+    <li><a href="#打开电影时间线工具栏">打开电影时间线工具栏</a></li>
+    <li><a href="#开启电影向导">开启电影向导</a>
+      <ul>
+        <li><a href="#文件名及格式">文件名及格式</a></li>
+        <li><a href="#录制窗口">录制窗口</a></li>
+        <li><a href="#分辨率">分辨率</a></li>
+        <li><a href="#相机视角">相机视角</a></li>
+        <li><a href="#时间和时长">时间和时长</a></li>
+        <li><a href="#大小和质量">大小和质量</a></li>
+        <li><a href="#录制">录制</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-7-the-movie-timeline">Lesson 7 The Movie Timeline</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartShareWork.htm%3FTocPath%3DTraining%7CLevel%25201%2520-%2520Beginner%2520Training%7C_____7" target="_blank" rel="noopener noreffer ">STK - Share Your Work (agi.com)</a></p>
+<p>本节介绍如何使用电影时间线向导 (Movie Timeline Wizard) 在 STK 中对场景进行录制。以空间站围绕地球运动为例。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="场景布置">场景布置</h2>
+<p>首先，在对象浏览器中取消勾选多余的对象，仅留下 Bloomington 地面站 和 ZARYA 空间站。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/01.png, /img/STK_Tutorial/Lesson7/01.png 1.5x, /img/STK_Tutorial/Lesson7/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/01.png"
+        title="/img/STK_Tutorial/Lesson7/01.png" /></p>
+<p>聚焦 (Zoom to) 于空间站，调整到合适的视角。使 3D 地图面向空间站前进的方向，运动轨迹的拐点清晰可见。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/02.png, /img/STK_Tutorial/Lesson7/02.png 1.5x, /img/STK_Tutorial/Lesson7/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/02.png"
+        title="/img/STK_Tutorial/Lesson7/02.png" /></p>
+<p>保存该视角。将其命名为 MovieView。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/03.png, /img/STK_Tutorial/Lesson7/03.png 1.5x, /img/STK_Tutorial/Lesson7/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/03.png"
+        title="/img/STK_Tutorial/Lesson7/03.png" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/04.png, /img/STK_Tutorial/Lesson7/04.png 1.5x, /img/STK_Tutorial/Lesson7/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/04.png"
+        title="/img/STK_Tutorial/Lesson7/04.png" /></p>
+<h2 id="打开电影时间线工具栏">打开电影时间线工具栏</h2>
+<p>点击菜单栏中的 View&gt;Toolbars&gt;Movie Timeline。在上方显示电影时间线工具栏。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/05.png, /img/STK_Tutorial/Lesson7/05.png 1.5x, /img/STK_Tutorial/Lesson7/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/05.png"
+        title="/img/STK_Tutorial/Lesson7/05.png" /></p>
+<p>显示成功后，电影时间线工具栏如下图所示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/06.png, /img/STK_Tutorial/Lesson7/06.png 1.5x, /img/STK_Tutorial/Lesson7/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/06.png"
+        title="/img/STK_Tutorial/Lesson7/06.png" /></p>
+<h2 id="开启电影向导">开启电影向导</h2>
+<p>点击电影时间线工具栏中的录制按钮 (Record from the Movie Timeline)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/07.png, /img/STK_Tutorial/Lesson7/07.png 1.5x, /img/STK_Tutorial/Lesson7/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/07.png"
+        title="/img/STK_Tutorial/Lesson7/07.png" /></p>
+<h3 id="文件名及格式">文件名及格式</h3>
+<p>在弹出的电影向导中，首先选择下方的录制格式。本例中选择录制格式为 WMV。</p>
+<p>接下来，点击上方的 Save as 选择存储位置。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/08.png, /img/STK_Tutorial/Lesson7/08.png 1.5x, /img/STK_Tutorial/Lesson7/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/08.png"
+        title="/img/STK_Tutorial/Lesson7/08.png" /></p>
+<p>本例将录制结果存于 STK_Fundamentals 文件夹，文件名设置为 Movie.wmv。设置完成后，点击 Next 来到下一步。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/09.png, /img/STK_Tutorial/Lesson7/09.png 1.5x, /img/STK_Tutorial/Lesson7/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/09.png"
+        title="/img/STK_Tutorial/Lesson7/09.png" /></p>
+<h3 id="录制窗口">录制窗口</h3>
+<p>本步骤选择录制的窗口。我们选择 3D 窗口进行录制。单击 Next。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/10.png, /img/STK_Tutorial/Lesson7/10.png 1.5x, /img/STK_Tutorial/Lesson7/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/10.png"
+        title="/img/STK_Tutorial/Lesson7/10.png" /></p>
+<h3 id="分辨率">分辨率</h3>
+<p>此步骤选择录制的分辨率。点击预设栏 (Preset) 选择分辨率，本例选择 720P。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/11.png, /img/STK_Tutorial/Lesson7/11.png 1.5x, /img/STK_Tutorial/Lesson7/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/11.png"
+        title="/img/STK_Tutorial/Lesson7/11.png" /></p>
+<p>选择后，3D 窗口会自动调整其大小。如图所示，该窗口比选择之前变得更宽了。</p>
+<p>确保该分辨率没有问题后，点击 Next。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/12.png, /img/STK_Tutorial/Lesson7/12.png 1.5x, /img/STK_Tutorial/Lesson7/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/12.png"
+        title="/img/STK_Tutorial/Lesson7/12.png" /></p>
+<h3 id="相机视角">相机视角</h3>
+<p>接下来，选择相机的视角。可以录制当前的视角或者保存的视角。我们选择之前保存的 MovieView 视角 (这里有一点挡住了，不过还是可以看得出来第二个是 Movie View)。点击 Next。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/13.png, /img/STK_Tutorial/Lesson7/13.png 1.5x, /img/STK_Tutorial/Lesson7/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/13.png"
+        title="/img/STK_Tutorial/Lesson7/13.png" /></p>
+<h3 id="时间和时长">时间和时长</h3>
+<p>本步骤中，设置录制的时间范围，和录制影片的时长。</p>
+<p>首先选择录制的时间范围，该时间范围对应场景当中的时间。本例中，选择开始时间到其之后的 10 分钟内为录制的时间范围。因此，将 End Time 设定为 Start time 之后的十分钟 (这里 Start time 的开始日期被挡住了，因为本例中开始日期是 11 日，所以 End Time 要修改日期为11)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/14.png, /img/STK_Tutorial/Lesson7/14.png 1.5x, /img/STK_Tutorial/Lesson7/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/14.png"
+        title="/img/STK_Tutorial/Lesson7/14.png" /></p>
+<p>接下来，设置录制视频的时长。本例中，设定录制视频时长为 5 秒，在右侧电影回放时长栏 (Movie playback length) 输入 5 sec。鼠标点击左侧步长 (Step size) 输入框，其值会根据录制时长自动调整。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/15.png, /img/STK_Tutorial/Lesson7/15.png 1.5x, /img/STK_Tutorial/Lesson7/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/15.png"
+        title="/img/STK_Tutorial/Lesson7/15.png" /></p>
+<p>点击预览 (Preview speed) 按钮，3D 地图中将按当前设置播放预览视频，方便对速度进行调整。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/16.png, /img/STK_Tutorial/Lesson7/16.png 1.5x, /img/STK_Tutorial/Lesson7/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/16.png"
+        title="/img/STK_Tutorial/Lesson7/16.png" /></p>
+<h3 id="大小和质量">大小和质量</h3>
+<p>本步骤用于设置生成视频的大小和质量。</p>
+<p>下图中四个红框代表：</p>
+<ul>
+<li>抗锯齿 (Anti-aliasing)：本例选择默认抗锯齿。</li>
+<li>运动模糊 (Motion blur)：该项默认不勾选。本例中勾选。(勾选框被挡住了一大半，还好露出来一点点可以勾选)。</li>
+<li>离屏渲染 (Off-screen render)：该项默认勾选。(幸好是默认的，要不这块被挡住了还选不上）</li>
+<li>质量 (Quality)：本例选择高质量 (High)。</li>
+</ul>
+<p>点击 Next。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/17.png, /img/STK_Tutorial/Lesson7/17.png 1.5x, /img/STK_Tutorial/Lesson7/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/17.png"
+        title="/img/STK_Tutorial/Lesson7/17.png" /></p>
+<h3 id="录制">录制</h3>
+<p>本步骤中，右侧显示录制信息总结。确认没有问题后，点击下方开始录制 (Begin Record) 按钮以生成视频。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/18.png, /img/STK_Tutorial/Lesson7/18.png 1.5x, /img/STK_Tutorial/Lesson7/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/18.png"
+        title="/img/STK_Tutorial/Lesson7/18.png" /></p>
+<p>录制过程比较慢，需要耐心等待一会。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/19.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/19.png, /img/STK_Tutorial/Lesson7/19.png 1.5x, /img/STK_Tutorial/Lesson7/19.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/19.png"
+        title="/img/STK_Tutorial/Lesson7/19.png" /></p>
+<p>导出成功。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson7/20.png"
+        data-srcset="/img/STK_Tutorial/Lesson7/20.png, /img/STK_Tutorial/Lesson7/20.png 1.5x, /img/STK_Tutorial/Lesson7/20.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson7/20.png"
+        title="/img/STK_Tutorial/Lesson7/20.png" /></p>
+<p>访问 <a href="agi.com/resources" rel="">agi.com/resources</a> 以获取更多的电影教程。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson7_the_movie_timeline/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" data-title="【STK11官方Tutorial学习笔记】Lesson7：电影时间线" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" data-title="【STK11官方Tutorial学习笔记】Lesson7：电影时间线"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" data-title="【STK11官方Tutorial学习笔记】Lesson7：电影时间线"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/" data-title="【STK11官方Tutorial学习笔记】Lesson7：电影时间线"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/stk_lesson6_connect_and_stk_object_model/" class="prev" rel="prev" title="【STK11官方Tutorial学习笔记】Lesson6：STK功能拓展"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【STK11官方Tutorial学习笔记】Lesson6：STK功能拓展</a>
+            <a href="/zh-cn/posts/stk_lesson8_terrain_and_chain/" class="next" rel="next" title="【STK11官方Tutorial学习笔记】Lesson8：地形分析和链对象">【STK11官方Tutorial学习笔记】Lesson8：地形分析和链对象<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

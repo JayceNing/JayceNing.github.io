@@ -4,15 +4,87 @@
         <link>https://bupt-ningxinyu.github.io/zh-cn/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nxybupt@bupt.edu.cn (杰斯)</managingEditor>
-            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Wed, 16 Nov 2022 23:35:29 &#43;0800</lastBuildDate>
+            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Sun, 20 Nov 2022 21:44:52 &#43;0800</lastBuildDate>
             <atom:link href="https://bupt-ningxinyu.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>从0到1搭建人工智能训练平台要多久？</title>
-    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E8%A6%81%E5%A4%9A%E4%B9%85/</link>
-    <pubDate>Wed, 16 Nov 2022 23:35:29 &#43;0800</pubDate>
+    <title>【STK11官方Tutorial学习笔记】Lesson11：覆盖</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson11_coverage/</link>
+    <pubDate>Sun, 20 Nov 2022 21:44:52 &#43;0800</pubDate>
     <author>Jayce Talis</author>
-    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E8%A6%81%E5%A4%9A%E4%B9%85/</guid>
-    <description><![CDATA[随着人工智能技术的发展和普及，训练一个常规的AI模型，似乎变成了当代大学生除了word和PPT外必备的生存技能。从入门到放弃的过程中，你大概]]></description>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson11_coverage/</guid>
+    <description><![CDATA[Lesson 11-1 STK Coverage 对应官方文档：STK - STK Analysis Workbench Tools (agi.com) 本教程将讲解如何使用 STK 计算覆盖 (Coverage)。 创建新场景 打开 STK 软件，点击创建新场景。 在新场景向]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson10：向量几何工具</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson10_vector_geometry_tool/</link>
+    <pubDate>Sun, 20 Nov 2022 21:15:40 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson10_vector_geometry_tool/</guid>
+    <description><![CDATA[Lesson 10 Vector Geometry Tool 对应官方文档：STK - STK Analysis Workbench Tools (agi.com) 本节课程用于讲解几何向量工具包。 在 Lesson 3 中，我们使用到了卫星模型的向量。本课程中，我们将使用几何向量]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/</link>
+    <pubDate>Sun, 20 Nov 2022 20:57:11 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/</guid>
+    <description><![CDATA[Lesson 9 AzEI Mask Tool 对应官方文档：STK - Create an AzEl Mask from a 3D Model (agi.com) 本节课将讨论如何使用 STK 的 AzEI 遮罩工具。 创建新场景 打开 STK 软件，点击创建新场景。 将新场景命名为 S]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson8：地形分析和链对象</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson8_terrain_and_chain/</link>
+    <pubDate>Sun, 20 Nov 2022 20:31:02 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson8_terrain_and_chain/</guid>
+    <description><![CDATA[Lesson 8-1 Analytical and Visual Terrain 对应官方文档：STK - Add Fidelity with STK Pro (agi.com) 本节课程将演示如何将自己的地形和图像添加到场景中。 新建一个名为 Lesson 8 的场景。 地形图导入及转换 在对]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson7：电影时间线</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/</link>
+    <pubDate>Sun, 20 Nov 2022 20:18:30 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson7_the_movie_timeline/</guid>
+    <description><![CDATA[Lesson 7 The Movie Timeline 对应官方文档：STK - Share Your Work (agi.com) 本节介绍如何使用电影时间线向导 (Movie Timeline Wizard) 在 STK 中对场景进行录制。以空间站围绕地球运动为例。 场景布置 首先，在]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson6：STK功能拓展</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson6_connect_and_stk_object_model/</link>
+    <pubDate>Sun, 20 Nov 2022 20:10:37 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson6_connect_and_stk_object_model/</guid>
+    <description><![CDATA[Lesson 6 Connect and STK Object Model 对应官方文档：STK - Extend STK Capabilities (agi.com) STK 提供了广泛的编程接口，本节将做一些简单的演示。 HTML 接口演示 打开 HTML API 示例程序 点击菜单栏中的 View&gt;HTML Vie]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson5：报告和图表管理器</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson5_report_and_graph_manager/</link>
+    <pubDate>Sun, 20 Nov 2022 19:59:52 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson5_report_and_graph_manager/</guid>
+    <description><![CDATA[Lesson 5 Report and Graph Manager 对应官方文档：STK - Create Reports &amp; Graphs 本节将带大家认识 报告和图表管理器 (Report and Graph Manager)。以 LLA positon (经度、维度和高度位置) 报告生成为例]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson4：计算访问</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/</link>
+    <pubDate>Sun, 20 Nov 2022 19:44:26 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/</guid>
+    <description><![CDATA[Lesson 4 Compute Access 对应官方文档：STK - Compute Access (agi.com) 本节讲述如何计算两个对象之间的访问 (Access)。该访问将会保存两个对象可以连通时相关的记录。比如空间]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson3：对象属性</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/</link>
+    <pubDate>Sun, 20 Nov 2022 19:34:52 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/</guid>
+    <description><![CDATA[Lesson 3 Object Properties 对应文档：STK - Modify STK Object Properties (agi.com) 每一个 STK 对象都有与之相关的属性。本节中将以我们在 Lesson 2 中创建的 空中目标CircularSat 和地面目标 Bloomington 的]]></description>
+</item>
+<item>
+    <title>【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/</link>
+    <pubDate>Sun, 20 Nov 2022 18:01:27 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/</guid>
+    <description><![CDATA[Lesson 2 Insert And Configure STK Objects 对应文档：STK - Insert STK Objects (agi.com) 本节讲述如何插入并配置一些典型的 STK 对象。 插入地面对象 点击上方菜单栏 Insert&gt;New 可选择的地面站点如：设施 (Fac]]></description>
 </item>
 </channel>
 </rss>

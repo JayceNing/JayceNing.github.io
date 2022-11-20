@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具" />
+<meta property="og:description" content="Lesson 9 AzEI Mask Tool 对应官方文档：STK - Create an AzEl Mask from a 3D Model (agi.com) 本节课将讨论如何使用 STK 的 AzEI 遮罩工具。 创建新场景 打开 STK 软件，点击创建新场景。 将新场景命名为 S" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-20T20:57:11+08:00" />
+<meta property="article:modified_time" content="2022-11-20T20:57:11+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具"/>
+<meta name="twitter:description" content="Lesson 9 AzEI Mask Tool 对应官方文档：STK - Create an AzEl Mask from a 3D Model (agi.com) 本节课将讨论如何使用 STK 的 AzEI 遮罩工具。 创建新场景 打开 STK 软件，点击创建新场景。 将新场景命名为 S"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson8_terrain_and_chain/" /><link rel="next" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson10_vector_geometry_tool/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson9_azei_mask_tool\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  2093 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson9_azei_mask_tool\/","datePublished": "2022-11-20T20:57:11+08:00","dateModified": "2022-11-20T20:57:11+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson9_azei_mask_tool/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson9_azei_mask_tool/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-20">2022-11-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2093 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建新场景">创建新场景</a></li>
+    <li><a href="#为场景添加地形">为场景添加地形</a>
+      <ul>
+        <li><a href="#禁用地形服务器">禁用地形服务器</a></li>
+        <li><a href="#导入本地地形">导入本地地形</a></li>
+      </ul>
+    </li>
+    <li><a href="#插入地面站">插入地面站</a>
+      <ul>
+        <li><a href="#确保-morton-考虑到其地形影响">确保 Morton 考虑到其地形影响</a></li>
+        <li><a href="#为地点添加-azeimask">为地点添加 AzEIMask</a></li>
+      </ul>
+    </li>
+    <li><a href="#在地面站上添加传感器">在地面站上添加传感器</a></li>
+    <li><a href="#确保传感器使用了父对象的azeimask">确保传感器使用了父对象的AzEIMask</a></li>
+    <li><a href="#展示地形遮罩">展示地形遮罩</a></li>
+    <li><a href="#建模遮罩对象">建模遮罩对象</a></li>
+    <li><a href="#创建传感器-azei-mask">创建传感器 AzEI Mask</a></li>
+    <li><a href="#确保访问计算时传感器用到了-body-mask-文件">确保访问计算时传感器用到了 body mask 文件</a></li>
+    <li><a href="#展示-body-mask-的遮罩">展示 Body Mask 的遮罩</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-9-azei-mask-tool">Lesson 9 AzEI Mask Tool</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartSensorAzEl.htm%3FTocPath%3DTraining%7CLevel%25202%2520-%2520Advanced%2520Training%7C_____2" target="_blank" rel="noopener noreffer ">STK - Create an AzEl Mask from a 3D Model (agi.com)</a></p>
+<p>本节课将讨论如何使用 STK 的 AzEI 遮罩工具。</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=10" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="创建新场景">创建新场景</h2>
+<p>打开 STK 软件，点击创建新场景。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/01.png, /img/STK_Tutorial/Lesson9/01.png 1.5x, /img/STK_Tutorial/Lesson9/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/01.png"
+        title="/img/STK_Tutorial/Lesson9/01.png" /></p>
+<p>将新场景命名为 STK_SensorAzEIMasking。</p>
+<p>保持场景默认的开始时间不变，结束时间修改为 1 秒之后。(+1sec)
+点击 OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/02.png, /img/STK_Tutorial/Lesson9/02.png 1.5x, /img/STK_Tutorial/Lesson9/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/02.png"
+        title="/img/STK_Tutorial/Lesson9/02.png" /></p>
+<p>先将新场景保存一下。</p>
+<p>点击工具栏中的保存按钮。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/03.png, /img/STK_Tutorial/Lesson9/03.png 1.5x, /img/STK_Tutorial/Lesson9/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/03.png"
+        title="/img/STK_Tutorial/Lesson9/03.png" /></p>
+<p>将场景保存在场景名称命名的目录下。在弹出窗口中直接点击保存即可。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/04.png, /img/STK_Tutorial/Lesson9/04.png 1.5x, /img/STK_Tutorial/Lesson9/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/04.png"
+        title="/img/STK_Tutorial/Lesson9/04.png" /></p>
+<p>为了方便接下来的观察，我们关掉时间线视图，并将 3D 地图窗口最大化。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/05.png, /img/STK_Tutorial/Lesson9/05.png 1.5x, /img/STK_Tutorial/Lesson9/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/05.png"
+        title="/img/STK_Tutorial/Lesson9/05.png" /></p>
+<h2 id="为场景添加地形">为场景添加地形</h2>
+<p>在对象浏览器中右击场景，点击属性。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/06.png, /img/STK_Tutorial/Lesson9/06.png 1.5x, /img/STK_Tutorial/Lesson9/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/06.png"
+        title="/img/STK_Tutorial/Lesson9/06.png" /></p>
+<h3 id="禁用地形服务器">禁用地形服务器</h3>
+<p>点击 Basic&gt;Terrain。勾选掉 Use terrain server for analysis 的选项。点击OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/07.png, /img/STK_Tutorial/Lesson9/07.png 1.5x, /img/STK_Tutorial/Lesson9/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/07.png"
+        title="/img/STK_Tutorial/Lesson9/07.png" /></p>
+<h3 id="导入本地地形">导入本地地形</h3>
+<p>点击 3D 地图工具栏中的地球管理器 (Globe Manager)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/08.png, /img/STK_Tutorial/Lesson9/08.png 1.5x, /img/STK_Tutorial/Lesson9/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/08.png"
+        title="/img/STK_Tutorial/Lesson9/08.png" /></p>
+<p>在左侧弹出的地球管理器中，点击 Add Terrain/Imagery。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/09.png, /img/STK_Tutorial/Lesson9/09.png 1.5x, /img/STK_Tutorial/Lesson9/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/09.png"
+        title="/img/STK_Tutorial/Lesson9/09.png" /></p>
+<p>点击右侧的 &hellip; 打开地形文件所在文件夹。</p>
+<ul>
+<li>该文件夹位于 &lt;STK 的安装路径&gt;\AGI\STK 11\Data\Resources\stktraining\imagery</li>
+<li>比如我的位于 D:\Program Files\AGI\STK 11\Data\Resources\stktraining\imagery</li>
+</ul>
+<p>选中 StHelens_Training.pdtt 文件。</p>
+<p>点击 Add。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/10.png, /img/STK_Tutorial/Lesson9/10.png 1.5x, /img/STK_Tutorial/Lesson9/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/10.png"
+        title="/img/STK_Tutorial/Lesson9/10.png" /></p>
+<p>弹出提示窗口：是否想使用此地形用于分析。点击 Yes 即可。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/11.png, /img/STK_Tutorial/Lesson9/11.png 1.5x, /img/STK_Tutorial/Lesson9/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/11.png"
+        title="/img/STK_Tutorial/Lesson9/11.png" /></p>
+<p>在地球管理器中，右击导入的地形，点击 Zoom to 以聚焦到地形所在位置。</p>
+<p>在 3D 地图中调整合适的视角。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/12.png, /img/STK_Tutorial/Lesson9/12.png 1.5x, /img/STK_Tutorial/Lesson9/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/12.png"
+        title="/img/STK_Tutorial/Lesson9/12.png" /></p>
+<h2 id="插入地面站">插入地面站</h2>
+<p>点击菜单栏 Insert&gt;New。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/13.png, /img/STK_Tutorial/Lesson9/13.png 1.5x, /img/STK_Tutorial/Lesson9/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/13.png"
+        title="/img/STK_Tutorial/Lesson9/13.png" /></p>
+<p>插入对象选择地点 (Place)，插入方式选择来自城市数据库 (From City Database)。</p>
+<p>点击 Insert。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/14.png, /img/STK_Tutorial/Lesson9/14.png 1.5x, /img/STK_Tutorial/Lesson9/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/14.png"
+        title="/img/STK_Tutorial/Lesson9/14.png" /></p>
+<p>在名称 (Name) 输入框中输入 morton。</p>
+<p>点击搜索 (Search)。</p>
+<p>在返回结果中找到位于华盛顿 (Washington) 的数据。</p>
+<p>点击插入 (Insert)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/15.png, /img/STK_Tutorial/Lesson9/15.png 1.5x, /img/STK_Tutorial/Lesson9/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/15.png"
+        title="/img/STK_Tutorial/Lesson9/15.png" /></p>
+<h3 id="确保-morton-考虑到其地形影响">确保 Morton 考虑到其地形影响</h3>
+<p>在对象浏览器中右击 Morton，点击属性。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/16.png, /img/STK_Tutorial/Lesson9/16.png 1.5x, /img/STK_Tutorial/Lesson9/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/16.png"
+        title="/img/STK_Tutorial/Lesson9/16.png" /></p>
+<p>点击 Basic&gt;Position。确保使用地形数据 (Use terrain data) 选项已勾选。修改距地距离 (Height Above Ground) 为 20 英尺 (20 ft)。</p>
+<p>点击 Apply 应用修改。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/17.png, /img/STK_Tutorial/Lesson9/17.png 1.5x, /img/STK_Tutorial/Lesson9/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/17.png"
+        title="/img/STK_Tutorial/Lesson9/17.png" /></p>
+<h3 id="为地点添加-azeimask">为地点添加 AzEIMask</h3>
+<p>此步骤用于定义方向-仰角遮罩 (Azimuth-elevation mask) 以便使用该遮罩作为计算访问时的约束。</p>
+<p>点击 Basic&gt;AzEIMask。</p>
+<p>使用栏选择地形数据 (Terrain Data)。</p>
+<p>勾选使用遮罩作为计算访问时的约束 (Use Mask for Access Constraint) 选项。</p>
+<p>点击 OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/18.png, /img/STK_Tutorial/Lesson9/18.png 1.5x, /img/STK_Tutorial/Lesson9/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/18.png"
+        title="/img/STK_Tutorial/Lesson9/18.png" /></p>
+<p>不要忘记时常保存你的更改。因为 STK 不会自动保存。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/19.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/19.png, /img/STK_Tutorial/Lesson9/19.png 1.5x, /img/STK_Tutorial/Lesson9/19.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/19.png"
+        title="/img/STK_Tutorial/Lesson9/19.png" /></p>
+<h2 id="在地面站上添加传感器">在地面站上添加传感器</h2>
+<p>在菜单栏中点击插入对象 (Insert Object) 按钮。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/20.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/20.png, /img/STK_Tutorial/Lesson9/20.png 1.5x, /img/STK_Tutorial/Lesson9/20.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/20.png"
+        title="/img/STK_Tutorial/Lesson9/20.png" /></p>
+<p>对象类型选择传感器 (Sensor)，插入方式选择默认插入 (Insert Default)。</p>
+<p>点击插入 (Insert)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/21.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/21.png, /img/STK_Tutorial/Lesson9/21.png 1.5x, /img/STK_Tutorial/Lesson9/21.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/21.png"
+        title="/img/STK_Tutorial/Lesson9/21.png" /></p>
+<p>在弹出窗口中，传感器附着 (Attached) 的对象选择地点 Morton。点击 OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/22.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/22.png, /img/STK_Tutorial/Lesson9/22.png 1.5x, /img/STK_Tutorial/Lesson9/22.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/22.png"
+        title="/img/STK_Tutorial/Lesson9/22.png" /></p>
+<p>在对象浏览器中右键传感器 (Sensor1)。点击 Rename 将其重命名为 SatTracker。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/23.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/23.png, /img/STK_Tutorial/Lesson9/23.png 1.5x, /img/STK_Tutorial/Lesson9/23.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/23.png"
+        title="/img/STK_Tutorial/Lesson9/23.png" /></p>
+<h2 id="确保传感器使用了父对象的azeimask">确保传感器使用了父对象的AzEIMask</h2>
+<p>在对象浏览器中右键传感器，点击属性。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/24.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/24.png, /img/STK_Tutorial/Lesson9/24.png 1.5x, /img/STK_Tutorial/Lesson9/24.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/24.png"
+        title="/img/STK_Tutorial/Lesson9/24.png" /></p>
+<p>点击 Basic&gt;Definition。将传感器类型修改为 Complex Conic。其半角 (Half Angles) 的外角 (Outer) 设定为 180 deg。点击 Apply。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/25.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/25.png, /img/STK_Tutorial/Lesson9/25.png 1.5x, /img/STK_Tutorial/Lesson9/25.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/25.png"
+        title="/img/STK_Tutorial/Lesson9/25.png" /></p>
+<p>点击 Constraints&gt;Basic。勾选 Az-EI Mask 选项。点击 Apply。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/26.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/26.png, /img/STK_Tutorial/Lesson9/26.png 1.5x, /img/STK_Tutorial/Lesson9/26.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/26.png"
+        title="/img/STK_Tutorial/Lesson9/26.png" /></p>
+<h2 id="展示地形遮罩">展示地形遮罩</h2>
+<p>点击 2D Graphics&gt;Projection。勾选使用约束 (Use Constraints) 选项，选择约束为 AzEIMask。点击 Apply。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/27.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/27.png, /img/STK_Tutorial/Lesson9/27.png 1.5x, /img/STK_Tutorial/Lesson9/27.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/27.png"
+        title="/img/STK_Tutorial/Lesson9/27.png" /></p>
+<p>点击 3D Graphics&gt;Projection。将空间投影 (Space Projection) 修改为 50 km。点击 OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/28.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/28.png, /img/STK_Tutorial/Lesson9/28.png 1.5x, /img/STK_Tutorial/Lesson9/28.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/28.png"
+        title="/img/STK_Tutorial/Lesson9/28.png" /></p>
+<p>返回 3D 地图，调整相机视角。此时看到的是 50 km 高空以下的遮罩，所以其形状呈现出锯齿状。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/29.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/29.png, /img/STK_Tutorial/Lesson9/29.png 1.5x, /img/STK_Tutorial/Lesson9/29.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/29.png"
+        title="/img/STK_Tutorial/Lesson9/29.png" /></p>
+<p>换一个视角，可以明显看出 50 km 的具体含义。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/30.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/30.png, /img/STK_Tutorial/Lesson9/30.png 1.5x, /img/STK_Tutorial/Lesson9/30.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/30.png"
+        title="/img/STK_Tutorial/Lesson9/30.png" /></p>
+<h2 id="建模遮罩对象">建模遮罩对象</h2>
+<p>在菜单栏中点击插入对象 (Insert Object) 按钮。</p>
+<p>插入对象选择设施 (Facility)。插入方式选择默认插入 (Insert Default)。点击插入 (Insert)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/31.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/31.png, /img/STK_Tutorial/Lesson9/31.png 1.5x, /img/STK_Tutorial/Lesson9/31.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/31.png"
+        title="/img/STK_Tutorial/Lesson9/31.png" /></p>
+<p>在对象浏览器中将该设施重命名为 Building。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/32.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/32.png, /img/STK_Tutorial/Lesson9/32.png 1.5x, /img/STK_Tutorial/Lesson9/32.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/32.png"
+        title="/img/STK_Tutorial/Lesson9/32.png" /></p>
+<p>聚焦于 Morton。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/33.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/33.png, /img/STK_Tutorial/Lesson9/33.png 1.5x, /img/STK_Tutorial/Lesson9/33.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/33.png"
+        title="/img/STK_Tutorial/Lesson9/33.png" /></p>
+<p>将 3D 地图下的视野调整至下图所示。我们将在上方的白色建筑位置插入设施 (Building)。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/34.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/34.png, /img/STK_Tutorial/Lesson9/34.png 1.5x, /img/STK_Tutorial/Lesson9/34.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/34.png"
+        title="/img/STK_Tutorial/Lesson9/34.png" /></p>
+<p>在 3D 对象编辑器工具栏将对象调整为设施/Building。点击开始编辑按钮。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/35.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/35.png, /img/STK_Tutorial/Lesson9/35.png 1.5x, /img/STK_Tutorial/Lesson9/35.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/35.png"
+        title="/img/STK_Tutorial/Lesson9/35.png" /></p>
+<p>按住 Shift 健，鼠标左键点击白色建筑的中心。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/36.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/36.png, /img/STK_Tutorial/Lesson9/36.png 1.5x, /img/STK_Tutorial/Lesson9/36.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/36.png"
+        title="/img/STK_Tutorial/Lesson9/36.png" /></p>
+<p>点击确认更改。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/37.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/37.png, /img/STK_Tutorial/Lesson9/37.png 1.5x, /img/STK_Tutorial/Lesson9/37.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/37.png"
+        title="/img/STK_Tutorial/Lesson9/37.png" /></p>
+<p>确认后，3D 地图中将显示一个白色球状建筑物。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/38.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/38.png, /img/STK_Tutorial/Lesson9/38.png 1.5x, /img/STK_Tutorial/Lesson9/38.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/38.png"
+        title="/img/STK_Tutorial/Lesson9/38.png" /></p>
+<h2 id="创建传感器-azei-mask">创建传感器 AzEI Mask</h2>
+<p>在对象浏览器中右击 SatTracker。点击 Sensor&gt;AzEI Mask。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/39.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/39.png, /img/STK_Tutorial/Lesson9/39.png 1.5x, /img/STK_Tutorial/Lesson9/39.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/39.png"
+        title="/img/STK_Tutorial/Lesson9/39.png" /></p>
+<p>遮罩物体 (Obscuring Objects) 选择 Building。</p>
+<p>将输出文件 (Output file) 名称修改为 MyBodyMask。</p>
+<p>窗维度 (Window Dim) 修改为 500。</p>
+<p>点击 Apply。</p>
+<p>确保当前窗口没有挡住左上角窗口。</p>
+<p>点击 Compute。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/40.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/40.png, /img/STK_Tutorial/Lesson9/40.png 1.5x, /img/STK_Tutorial/Lesson9/40.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/40.png"
+        title="/img/STK_Tutorial/Lesson9/40.png" /></p>
+<p>在弹出窗口中，选择将 MyBodyMask 保存到当前场景文件夹下。默认文件夹即为当前场景文件夹，点击保存即可。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/41.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/41.png, /img/STK_Tutorial/Lesson9/41.png 1.5x, /img/STK_Tutorial/Lesson9/41.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/41.png"
+        title="/img/STK_Tutorial/Lesson9/41.png" /></p>
+<p>计算后，关闭两个窗口，并保存当前场景。</p>
+<h2 id="确保访问计算时传感器用到了-body-mask-文件">确保访问计算时传感器用到了 body mask 文件</h2>
+<p>在对象浏览器中右击 SatTracker，点击属性。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/42.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/42.png, /img/STK_Tutorial/Lesson9/42.png 1.5x, /img/STK_Tutorial/Lesson9/42.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/42.png"
+        title="/img/STK_Tutorial/Lesson9/42.png" /></p>
+<p>点击 Basic&gt;Sensor AzEI Mask。使用 MaskFile。点击右侧的 &hellip; 按钮，找到刚才保存的 MyBodyMask.bmsk 文件，点击打开。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/43.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/43.png, /img/STK_Tutorial/Lesson9/43.png 1.5x, /img/STK_Tutorial/Lesson9/43.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/43.png"
+        title="/img/STK_Tutorial/Lesson9/43.png" /></p>
+<p>勾选使用遮罩作为计算访问的约束 (Use Mask for Access Constraint)。点击 Apply。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/44.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/44.png, /img/STK_Tutorial/Lesson9/44.png 1.5x, /img/STK_Tutorial/Lesson9/44.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/44.png"
+        title="/img/STK_Tutorial/Lesson9/44.png" /></p>
+<h2 id="展示-body-mask-的遮罩">展示 Body Mask 的遮罩</h2>
+<p>点击 2D Graphics&gt;Projection。</p>
+<p>在视野栏 (Field of View) 的约束中，我们不仅想使用之前添加的地形条件约束 (AzEIMask)，我们还想添加之后加入的建筑物的约束 (SensorAzEIMask)。</p>
+<p>因此，我们在约束栏中向下滚动，找到 SensorAzEIMask。按住 Ctrl 健，之后使用鼠标左键选择 SensorAzEIMask。</p>
+<p>点击 OK。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/45.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/45.png, /img/STK_Tutorial/Lesson9/45.png 1.5x, /img/STK_Tutorial/Lesson9/45.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/45.png"
+        title="/img/STK_Tutorial/Lesson9/45.png" /></p>
+<p>此时，在 3D 地图中可以看到建筑物遮挡了传感器的视野。不像添加 SensorAzEIMask 之前视野能够穿过建筑物。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/46.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/46.png, /img/STK_Tutorial/Lesson9/46.png 1.5x, /img/STK_Tutorial/Lesson9/46.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/46.png"
+        title="/img/STK_Tutorial/Lesson9/46.png" /></p>
+<p>放大到更大尺度也是一样。这个圆弧就是圆形的建筑物遮挡引起的。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson9/47.png"
+        data-srcset="/img/STK_Tutorial/Lesson9/47.png, /img/STK_Tutorial/Lesson9/47.png 1.5x, /img/STK_Tutorial/Lesson9/47.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson9/47.png"
+        title="/img/STK_Tutorial/Lesson9/47.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson9_azei_mask_tool/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" data-title="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" data-title="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" data-title="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson9_azei_mask_tool/" data-title="【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/stk_lesson8_terrain_and_chain/" class="prev" rel="prev" title="【STK11官方Tutorial学习笔记】Lesson8：地形分析和链对象"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【STK11官方Tutorial学习笔记】Lesson8：地形分析和链对象</a>
+            <a href="/zh-cn/posts/stk_lesson10_vector_geometry_tool/" class="next" rel="next" title="【STK11官方Tutorial学习笔记】Lesson10：向量几何工具">【STK11官方Tutorial学习笔记】Lesson10：向量几何工具<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
