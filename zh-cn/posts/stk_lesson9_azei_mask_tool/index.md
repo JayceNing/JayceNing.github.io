@@ -1,4 +1,4 @@
-# 【STK11官方Tutorial学习笔记】Lesson8：方向-俯仰角遮罩工具
+# 【STK11官方Tutorial学习笔记】Lesson9：方向-俯仰角遮罩工具
 
 
 # Lesson 9 AzEI Mask Tool
