@@ -4,9 +4,17 @@
         <link>https://bupt-ningxinyu.github.io/zh-cn/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nxybupt@bupt.edu.cn (杰斯)</managingEditor>
-            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Sun, 20 Nov 2022 21:44:52 &#43;0800</lastBuildDate>
+            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Sat, 11 Mar 2023 20:21:41 &#43;0800</lastBuildDate>
             <atom:link href="https://bupt-ningxinyu.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>【STK11官方Tutorial学习笔记】Lesson12: 体积任务</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/</link>
+    <pubDate>Sat, 11 Mar 2023 20:21:41 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/</guid>
+    <description><![CDATA[Lesson 12-1 Volumetrics Task 对应官方文档：STK - Build a Volumetric Object (agi.com) 本节任务：构建操作区域 (Build an Area of Operations) 创建新场景 打开 STK 软件，点击创建新场景。 在新场景向导中： 设置场景名称为]]></description>
+</item>
+<item>
     <title>【STK11官方Tutorial学习笔记】Lesson11：覆盖</title>
     <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson11_coverage/</link>
     <pubDate>Sun, 20 Nov 2022 21:44:52 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>Jayce Talis</author>
     <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/</guid>
     <description><![CDATA[Lesson 3 Object Properties 对应文档：STK - Modify STK Object Properties (agi.com) 每一个 STK 对象都有与之相关的属性。本节中将以我们在 Lesson 2 中创建的 空中目标CircularSat 和地面目标 Bloomington 的]]></description>
-</item>
-<item>
-    <title>【STK11官方Tutorial学习笔记】Lesson2：插入并配置STK对象</title>
-    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/</link>
-    <pubDate>Sun, 20 Nov 2022 18:01:27 &#43;0800</pubDate>
-    <author>Jayce Talis</author>
-    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson2_insert_and_configure_stk_objects/</guid>
-    <description><![CDATA[Lesson 2 Insert And Configure STK Objects 对应文档：STK - Insert STK Objects (agi.com) 本节讲述如何插入并配置一些典型的 STK 对象。 插入地面对象 点击上方菜单栏 Insert&gt;New 可选择的地面站点如：设施 (Fac]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>【STK11官方Tutorial学习笔记】Lesson12: 体积任务 - 宁同学的海克斯工坊</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="【STK11官方Tutorial学习笔记】Lesson12: 体积任务" />
+<meta property="og:description" content="Lesson 12-1 Volumetrics Task 对应官方文档：STK - Build a Volumetric Object (agi.com) 本节任务：构建操作区域 (Build an Area of Operations) 创建新场景 打开 STK 软件，点击创建新场景。 在新场景向导中： 设置场景名称为" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-11T20:21:41+08:00" />
+<meta property="article:modified_time" content="2023-03-11T20:21:41+08:00" /><meta property="og:site_name" content="宁同学的海克斯工坊" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【STK11官方Tutorial学习笔记】Lesson12: 体积任务"/>
+<meta name="twitter:description" content="Lesson 12-1 Volumetrics Task 对应官方文档：STK - Build a Volumetric Object (agi.com) 本节任务：构建操作区域 (Build an Area of Operations) 创建新场景 打开 STK 软件，点击创建新场景。 在新场景向导中： 设置场景名称为"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" /><link rel="prev" href="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson11_coverage/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "【STK11官方Tutorial学习笔记】Lesson12: 体积任务",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson12_volumetrics_task\/"
+        },"genre": "posts","keywords": "STK, 卫星通信","wordcount":  2337 ,
+        "url": "https:\/\/bupt-ningxinyu.github.io\/zh-cn\/posts\/stk_lesson12_volumetrics_task\/","datePublished": "2023-03-11T20:21:41+08:00","dateModified": "2023-03-11T20:21:41+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Jayce Talis"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="auto" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson12_volumetrics_task/" selected>简体中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="宁同学的海克斯工坊"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />HexWorkshop</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="https://github.com//BUPT-NingXinyu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/posts/stk_lesson12_volumetrics_task/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">【STK11官方Tutorial学习笔记】Lesson12: 体积任务</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Jayce Talis</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/stk11%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>STK11官方教程笔记</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-11">2023-03-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2337 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建新场景">创建新场景</a></li>
+    <li><a href="#启用地形分析">启用地形分析</a></li>
+    <li><a href="#定义操作区域">定义操作区域</a></li>
+    <li><a href="#插入地点对象">插入地点对象</a></li>
+    <li><a href="#插入传感器">插入传感器</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#插入体积对象">插入体积对象</a></li>
+    <li><a href="#创建地图网格参考-cartographic-grid-reference">创建地图网格参考 (Cartographic Grid Reference)</a></li>
+    <li><a href="#可视化简单地图组件-simple-cartographic-component">可视化简单地图组件 (Simple Cartographic component)</a></li>
+    <li><a href="#创建约束网格">创建约束网格</a></li>
+    <li><a href="#观察带约束网格的体积对象">观察带约束网格的体积对象</a></li>
+    <li><a href="#可视化体积网格">可视化体积网格</a></li>
+    <li><a href="#生成报告">生成报告</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lesson-12-1-volumetrics-task">Lesson 12-1 Volumetrics Task</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartVolume.htm%3FTocPath%3DTraining%7CLevel%25202%2520-%2520Advanced%2520Training%7C_____5" target="_blank" rel="noopener noreffer ">STK - Build a Volumetric Object (agi.com)</a></p>
+<p>本节任务：构建操作区域 (Build an Area of Operations)</p>
+<div class="bilibili"><iframe src="//player.bilibili.com/player.html?bvid=BV1Zo4y1d7Jc&page=14" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe></div>
+
+<h2 id="创建新场景">创建新场景</h2>
+<ol>
+<li>打开 STK 软件，点击创建新场景。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/01.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/01.png, /img/STK_Tutorial/Lesson12/01.png 1.5x, /img/STK_Tutorial/Lesson12/01.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/01.png"
+        title="/img/STK_Tutorial/Lesson12/01.png" /></p>
+<ol start="2">
+<li>在新场景向导中：</li>
+</ol>
+<ul>
+<li>设置场景名称为：STK_Volumetrics</li>
+<li>保持默认的开始时间，设置结束时间为+1sec</li>
+</ul>
+<ol start="3">
+<li>点击OK</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/02.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/02.png, /img/STK_Tutorial/Lesson12/02.png 1.5x, /img/STK_Tutorial/Lesson12/02.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/02.png"
+        title="/img/STK_Tutorial/Lesson12/02.png" /></p>
+<h2 id="启用地形分析">启用地形分析</h2>
+<p>在本实验中不需要用到时间线窗口。首先关掉时间线窗口，然后最大化3D地图窗口，点击保存场景。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/03.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/03.png, /img/STK_Tutorial/Lesson12/03.png 1.5x, /img/STK_Tutorial/Lesson12/03.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/03.png"
+        title="/img/STK_Tutorial/Lesson12/03.png" /></p>
+<p>STK支持在联网和非联网条件下导入地形。</p>
+<ol>
+<li>在联网条件下</li>
+</ol>
+<ul>
+<li>右键对象浏览器中的场景，单击属性。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/04.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/04.png, /img/STK_Tutorial/Lesson12/04.png 1.5x, /img/STK_Tutorial/Lesson12/04.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/04.png"
+        title="/img/STK_Tutorial/Lesson12/04.png" /></p>
+<ul>
+<li>点击 Basic &gt; Terrain。确保 Use terrain server for analyses 处于勾选状态。勾选 Azimuth/Elevation Mask 选项。单击 OK。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/05.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/05.png, /img/STK_Tutorial/Lesson12/05.png 1.5x, /img/STK_Tutorial/Lesson12/05.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/05.png"
+        title="/img/STK_Tutorial/Lesson12/05.png" /></p>
+<ol start="2">
+<li>在非联网条件下</li>
+</ol>
+<ul>
+<li>点击 View &gt; Globe Manager</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/06.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/06.png, /img/STK_Tutorial/Lesson12/06.png 1.5x, /img/STK_Tutorial/Lesson12/06.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/06.png"
+        title="/img/STK_Tutorial/Lesson12/06.png" /></p>
+<ul>
+<li>在 Globe Manager 中点击 Add Terrain/Imagery 按钮</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/07.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/07.png, /img/STK_Tutorial/Lesson12/07.png 1.5x, /img/STK_Tutorial/Lesson12/07.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/07.png"
+        title="/img/STK_Tutorial/Lesson12/07.png" /></p>
+<ul>
+<li>更改文件夹路径为 <!-- raw HTML omitted -->\AGI\STK11\Data\Resources\stktraining\imagery。点击StHelens_Training.pdtt，点击 Add。在新弹出的窗口中点击 Yes。</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/08.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/08.png, /img/STK_Tutorial/Lesson12/08.png 1.5x, /img/STK_Tutorial/Lesson12/08.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/08.png"
+        title="/img/STK_Tutorial/Lesson12/08.png" /></p>
+<h2 id="定义操作区域">定义操作区域</h2>
+<ol>
+<li>点击 Insert &gt; New</li>
+<li>插入对象选择 Area Target，插入方式选择 Area Target Wizard。点击 Insert。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/09.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/09.png, /img/STK_Tutorial/Lesson12/09.png 1.5x, /img/STK_Tutorial/Lesson12/09.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/09.png"
+        title="/img/STK_Tutorial/Lesson12/09.png" /></p>
+<ol start="3">
+<li>设置名称为 OperationArea。将区域类型选择为椭圆形 (Ellipse)。将半长轴 (Semi-Major Axis) 更改为 1500 km。将半短轴 (Semi-Minor Axis) 更改为 1500 km。设置中心点纬度 (Latitude) 为 46.6，经度 (Longitude) 为-122.3。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/10.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/10.png, /img/STK_Tutorial/Lesson12/10.png 1.5x, /img/STK_Tutorial/Lesson12/10.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/10.png"
+        title="/img/STK_Tutorial/Lesson12/10.png" /></p>
+<h2 id="插入地点对象">插入地点对象</h2>
+<ol>
+<li>点击 Insert &gt; New。插入对象选择 Place，插入方式选择 From City Database。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/11.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/11.png, /img/STK_Tutorial/Lesson12/11.png 1.5x, /img/STK_Tutorial/Lesson12/11.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/11.png"
+        title="/img/STK_Tutorial/Lesson12/11.png" /></p>
+<ol start="2">
+<li>在数据库中，输入名称为 morton，点击 Search。在返回的结果中，选择位于 Washington 的 Morton。点击 Insert。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/12.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/12.png, /img/STK_Tutorial/Lesson12/12.png 1.5x, /img/STK_Tutorial/Lesson12/12.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/12.png"
+        title="/img/STK_Tutorial/Lesson12/12.png" /></p>
+<ol start="3">
+<li>关闭之前的窗口。在对象浏览器中右键 Morton，点击属性。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/13.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/13.png, /img/STK_Tutorial/Lesson12/13.png 1.5x, /img/STK_Tutorial/Lesson12/13.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/13.png"
+        title="/img/STK_Tutorial/Lesson12/13.png" /></p>
+<ol start="4">
+<li>点击 Basic &gt; Position。确保 Use terrain data 处于选中状态。设置离地高度为 20 ft。点击 Apply。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/14.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/14.png, /img/STK_Tutorial/Lesson12/14.png 1.5x, /img/STK_Tutorial/Lesson12/14.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/14.png"
+        title="/img/STK_Tutorial/Lesson12/14.png" /></p>
+<ol start="5">
+<li>点击 Basic &gt; AzEIMask。使用 Terrain Data，勾选 Use Mask for Access Constraint 选项。点击 Apply。点击 OK。此时可以聚焦 (zoom to) 到 Morton，查看该区域的地形情况。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/15.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/15.png, /img/STK_Tutorial/Lesson12/15.png 1.5x, /img/STK_Tutorial/Lesson12/15.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/15.png"
+        title="/img/STK_Tutorial/Lesson12/15.png" /></p>
+<h2 id="插入传感器">插入传感器</h2>
+<ol>
+<li>点击 Insert &gt; New。插入对象选择 Sensor，插入方式选择 Insert Default。点击 Insert。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/16.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/16.png, /img/STK_Tutorial/Lesson12/16.png 1.5x, /img/STK_Tutorial/Lesson12/16.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/16.png"
+        title="/img/STK_Tutorial/Lesson12/16.png" /></p>
+<ol start="2">
+<li>在选择对象窗口中，点击 Morton。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/17.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/17.png, /img/STK_Tutorial/Lesson12/17.png 1.5x, /img/STK_Tutorial/Lesson12/17.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/17.png"
+        title="/img/STK_Tutorial/Lesson12/17.png" /></p>
+<ol start="3">
+<li>打开传感器对象的属性。右键 Sensor1，点击 Properties。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/18.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/18.png, /img/STK_Tutorial/Lesson12/18.png 1.5x, /img/STK_Tutorial/Lesson12/18.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/18.png"
+        title="/img/STK_Tutorial/Lesson12/18.png" /></p>
+<ol start="4">
+<li>修改传感器类型为 Complex Conic。将圆锥外半角修改为 180 deg。点击 Apply。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/19.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/19.png, /img/STK_Tutorial/Lesson12/19.png 1.5x, /img/STK_Tutorial/Lesson12/19.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/19.png"
+        title="/img/STK_Tutorial/Lesson12/19.png" /></p>
+<ol start="5">
+<li>点击 Constraints &gt; Basic。勾选 Az-EI Mask 选项，点击 Apply。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/20.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/20.png, /img/STK_Tutorial/Lesson12/20.png 1.5x, /img/STK_Tutorial/Lesson12/20.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/20.png"
+        title="/img/STK_Tutorial/Lesson12/20.png" /></p>
+<ol start="6">
+<li>点击 2D Graphics &gt; Projection。在视野栏中勾选 Use Constraints，选中 AzEIMask。点击 Apply。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/21.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/21.png, /img/STK_Tutorial/Lesson12/21.png 1.5x, /img/STK_Tutorial/Lesson12/21.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/21.png"
+        title="/img/STK_Tutorial/Lesson12/21.png" /></p>
+<ol start="7">
+<li>点击 3D Graphics &gt; Projection。将空间投影 (Space Projection) 修改为 50 km。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/22.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/22.png, /img/STK_Tutorial/Lesson12/22.png 1.5x, /img/STK_Tutorial/Lesson12/22.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/22.png"
+        title="/img/STK_Tutorial/Lesson12/22.png" /></p>
+<p>在 3D 地图中调整视角，可查看传感器的形态。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/23.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/23.png, /img/STK_Tutorial/Lesson12/23.png 1.5x, /img/STK_Tutorial/Lesson12/23.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/23.png"
+        title="/img/STK_Tutorial/Lesson12/23.png" /></p>
+<h1 id="lesson-12-2-volumetrics-task2">Lesson 12-2 Volumetrics Task2</h1>
+<p>对应官方文档：<a href="https://help.agi.com/stk/11.6.1/index.htm#training/StartVolume.htm%3FTocPath%3DTraining%7CLevel%25202%2520-%2520Advanced%2520Training%7C_____5" target="_blank" rel="noopener noreffer ">STK - Build a Volumetric Object (agi.com)</a></p>
+<p>本节任务：为体积对象创建组件 (Create Components for the Volumetric Object)</p>
+<h2 id="插入体积对象">插入体积对象</h2>
+<p>点击 Insert &gt; New。插入对象选择 Volumetric，插入方式选择 Insert Default。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/24.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/24.png, /img/STK_Tutorial/Lesson12/24.png 1.5x, /img/STK_Tutorial/Lesson12/24.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/24.png"
+        title="/img/STK_Tutorial/Lesson12/24.png" /></p>
+<h2 id="创建地图网格参考-cartographic-grid-reference">创建地图网格参考 (Cartographic Grid Reference)</h2>
+<ol>
+<li>在对象浏览器中，右键场景，点击 Analysis Workbench。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/25.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/25.png, /img/STK_Tutorial/Lesson12/25.png 1.5x, /img/STK_Tutorial/Lesson12/25.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/25.png"
+        title="/img/STK_Tutorial/Lesson12/25.png" /></p>
+<ol start="2">
+<li>点击 Spatial Analysis，选中 OperationArea。点击中间的 Create new Volume Grid 按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/26.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/26.png, /img/STK_Tutorial/Lesson12/26.png 1.5x, /img/STK_Tutorial/Lesson12/26.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/26.png"
+        title="/img/STK_Tutorial/Lesson12/26.png" /></p>
+<ol start="3">
+<li>修改名称为 SimpleCartographic。保持 Constrain active grid points within Area Target 处于选中状态。点击 Set Grid Values。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/27.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/27.png, /img/STK_Tutorial/Lesson12/27.png 1.5x, /img/STK_Tutorial/Lesson12/27.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/27.png"
+        title="/img/STK_Tutorial/Lesson12/27.png" /></p>
+<ol start="4">
+<li>修改最低海拔为 160 km，最高海拔为 2000 km。步长设置为 20。点击 OK。此窗口退出后，继续点击上一个窗口的 OK。记得时常保存场景。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/28.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/28.png, /img/STK_Tutorial/Lesson12/28.png 1.5x, /img/STK_Tutorial/Lesson12/28.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/28.png"
+        title="/img/STK_Tutorial/Lesson12/28.png" /></p>
+<h2 id="可视化简单地图组件-simple-cartographic-component">可视化简单地图组件 (Simple Cartographic component)</h2>
+<ol>
+<li>在对象浏览器中右键体积对象，点击属性。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/29.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/29.png, /img/STK_Tutorial/Lesson12/29.png 1.5x, /img/STK_Tutorial/Lesson12/29.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/29.png"
+        title="/img/STK_Tutorial/Lesson12/29.png" /></p>
+<ol start="2">
+<li>点击 Volume Grid 后的省略号按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/30.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/30.png, /img/STK_Tutorial/Lesson12/30.png 1.5x, /img/STK_Tutorial/Lesson12/30.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/30.png"
+        title="/img/STK_Tutorial/Lesson12/30.png" /></p>
+<ol start="3">
+<li>点击 OperationArea。为其选择刚刚创建的网格组件 SimpleCartographic。点击 OK。在上一级窗口中点击 Apply。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/31.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/31.png, /img/STK_Tutorial/Lesson12/31.png 1.5x, /img/STK_Tutorial/Lesson12/31.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/31.png"
+        title="/img/STK_Tutorial/Lesson12/31.png" /></p>
+<ol start="4">
+<li>在 3D 地图中，可以在目标区域查看到体积网格。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/32.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/32.png, /img/STK_Tutorial/Lesson12/32.png 1.5x, /img/STK_Tutorial/Lesson12/32.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/32.png"
+        title="/img/STK_Tutorial/Lesson12/32.png" /></p>
+<h2 id="创建约束网格">创建约束网格</h2>
+<ol>
+<li>在对象浏览器中右键场景，点击 Analysis Workbench。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/33.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/33.png, /img/STK_Tutorial/Lesson12/33.png 1.5x, /img/STK_Tutorial/Lesson12/33.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/33.png"
+        title="/img/STK_Tutorial/Lesson12/33.png" /></p>
+<ol start="2">
+<li>点击 Spatial Analysis，选中 OperationArea。点击中间的 Create new Volume Grid 按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/34.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/34.png, /img/STK_Tutorial/Lesson12/34.png 1.5x, /img/STK_Tutorial/Lesson12/34.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/34.png"
+        title="/img/STK_Tutorial/Lesson12/34.png" /></p>
+<ol start="3">
+<li>修改组件类型。点击 Select。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/35.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/35.png, /img/STK_Tutorial/Lesson12/35.png 1.5x, /img/STK_Tutorial/Lesson12/35.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/35.png"
+        title="/img/STK_Tutorial/Lesson12/35.png" /></p>
+<ol start="4">
+<li>选中 Constrained，点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/36.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/36.png, /img/STK_Tutorial/Lesson12/36.png 1.5x, /img/STK_Tutorial/Lesson12/36.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/36.png"
+        title="/img/STK_Tutorial/Lesson12/36.png" /></p>
+<ol start="5">
+<li>名称修改为SensorFOV (传感器视野)。点击省略号选中刚刚创建的参考网格。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/37.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/37.png, /img/STK_Tutorial/Lesson12/37.png 1.5x, /img/STK_Tutorial/Lesson12/37.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/37.png"
+        title="/img/STK_Tutorial/Lesson12/37.png" /></p>
+<ol start="6">
+<li>点击 OperationArea。为其选择刚刚创建的网格组件 SimpleCartographic。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/38.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/38.png, /img/STK_Tutorial/Lesson12/38.png 1.5x, /img/STK_Tutorial/Lesson12/38.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/38.png"
+        title="/img/STK_Tutorial/Lesson12/38.png" /></p>
+<ol start="7">
+<li>选择空间条件，点击右侧的省略号按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/39.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/39.png, /img/STK_Tutorial/Lesson12/39.png 1.5x, /img/STK_Tutorial/Lesson12/39.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/39.png"
+        title="/img/STK_Tutorial/Lesson12/39.png" /></p>
+<ol start="8">
+<li>点击 Sensor1。为其选择 Visibility 的空间条件。点击 OK。并且在上一级窗口中点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/40.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/40.png, /img/STK_Tutorial/Lesson12/40.png 1.5x, /img/STK_Tutorial/Lesson12/40.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/40.png"
+        title="/img/STK_Tutorial/Lesson12/40.png" /></p>
+<h2 id="观察带约束网格的体积对象">观察带约束网格的体积对象</h2>
+<ol>
+<li>在对象浏览器中右键 Volumetric1，点击属性。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/41.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/41.png, /img/STK_Tutorial/Lesson12/41.png 1.5x, /img/STK_Tutorial/Lesson12/41.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/41.png"
+        title="/img/STK_Tutorial/Lesson12/41.png" /></p>
+<ol start="2">
+<li>在 Basic &gt; Definition 界面中，点击 Volume Grid 右侧的省略号按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/42.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/42.png, /img/STK_Tutorial/Lesson12/42.png 1.5x, /img/STK_Tutorial/Lesson12/42.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/42.png"
+        title="/img/STK_Tutorial/Lesson12/42.png" /></p>
+<ol start="3">
+<li>点击 OperationArea。为其选择刚刚创建的网格组件 SensorFOV。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/43.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/43.png, /img/STK_Tutorial/Lesson12/43.png 1.5x, /img/STK_Tutorial/Lesson12/43.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/43.png"
+        title="/img/STK_Tutorial/Lesson12/43.png" /></p>
+<ol start="4">
+<li>回到刚才的属性页面。选中 Spatial Calculation，点击右侧的省略号按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/44.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/44.png, /img/STK_Tutorial/Lesson12/44.png 1.5x, /img/STK_Tutorial/Lesson12/44.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/44.png"
+        title="/img/STK_Tutorial/Lesson12/44.png" /></p>
+<ol start="5">
+<li>点击 OperationArea，在右侧空间计算组件中选择 Altitude。点击 OK。在返回窗口中点击 Apply。别忘了时常保存场景。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/45.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/45.png, /img/STK_Tutorial/Lesson12/45.png 1.5x, /img/STK_Tutorial/Lesson12/45.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/45.png"
+        title="/img/STK_Tutorial/Lesson12/45.png" /></p>
+<p>在对象浏览器中选中 Volumetric1。点击工具栏上的 Volumetric 选项，点击 Compute。此时窗口右下角会显示计算的进度条。计算结束后，进度条消失。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/46.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/46.png, /img/STK_Tutorial/Lesson12/46.png 1.5x, /img/STK_Tutorial/Lesson12/46.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/46.png"
+        title="/img/STK_Tutorial/Lesson12/46.png" /></p>
+<h2 id="可视化体积网格">可视化体积网格</h2>
+<ol>
+<li>回到体积对象的属性界面。点击 3D Graphics &gt; Grid。禁用 Show Grid 选项。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/47.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/47.png, /img/STK_Tutorial/Lesson12/47.png 1.5x, /img/STK_Tutorial/Lesson12/47.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/47.png"
+        title="/img/STK_Tutorial/Lesson12/47.png" /></p>
+<p>此时在 3D 地图中，可以看到计算的结果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/48.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/48.png, /img/STK_Tutorial/Lesson12/48.png 1.5x, /img/STK_Tutorial/Lesson12/48.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/48.png"
+        title="/img/STK_Tutorial/Lesson12/48.png" /></p>
+<ol start="2">
+<li>回到体积对象的属性界面。点击 3D Graphics &gt; Volume。选中 Spatial Calculation Levels，点击 Insert Evenly Spaced Values 按钮。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/49.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/49.png, /img/STK_Tutorial/Lesson12/49.png 1.5x, /img/STK_Tutorial/Lesson12/49.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/49.png"
+        title="/img/STK_Tutorial/Lesson12/49.png" /></p>
+<ol start="3">
+<li>设置起始值为 160，终止值为 2000。步长为 200。点击 Create Values。在返回的属性窗口中，点击 Apply 应用修改。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/50.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/50.png, /img/STK_Tutorial/Lesson12/50.png 1.5x, /img/STK_Tutorial/Lesson12/50.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/50.png"
+        title="/img/STK_Tutorial/Lesson12/50.png" /></p>
+<ol start="4">
+<li>选中 3D Graphics &gt; Legends。为体积对象添加图例，勾选 Show Legend 选项。修改文字题目为 Altitude (km)。不需要显示小数，因此将小数位数改为 0。修改色块宽度为 60。点击 OK。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/51.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/51.png, /img/STK_Tutorial/Lesson12/51.png 1.5x, /img/STK_Tutorial/Lesson12/51.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/51.png"
+        title="/img/STK_Tutorial/Lesson12/51.png" /></p>
+<p>此时在 3D 地图中，移动视角，查看体积网格效果。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/52.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/52.png, /img/STK_Tutorial/Lesson12/52.png 1.5x, /img/STK_Tutorial/Lesson12/52.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/52.png"
+        title="/img/STK_Tutorial/Lesson12/52.png" /></p>
+<h2 id="生成报告">生成报告</h2>
+<ol>
+<li>在对象浏览器中右键体积对象，点击 Report &amp; Graph Manager。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/53.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/53.png, /img/STK_Tutorial/Lesson12/53.png 1.5x, /img/STK_Tutorial/Lesson12/53.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/53.png"
+        title="/img/STK_Tutorial/Lesson12/53.png" /></p>
+<ol start="2">
+<li>确保 Show Reports 选项处于选中状态。报告类型选择 Satisfaction Volume。点击 Generate。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/54.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/54.png, /img/STK_Tutorial/Lesson12/54.png 1.5x, /img/STK_Tutorial/Lesson12/54.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/54.png"
+        title="/img/STK_Tutorial/Lesson12/54.png" /></p>
+<p>报告的计算结果表明，在创建的 160 km 到 2000 km 范围内的体积区域内，有 96.41% 的区域满足了覆盖的要求。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/img/STK_Tutorial/Lesson12/55.png"
+        data-srcset="/img/STK_Tutorial/Lesson12/55.png, /img/STK_Tutorial/Lesson12/55.png 1.5x, /img/STK_Tutorial/Lesson12/55.png 2x"
+        data-sizes="auto"
+        alt="/img/STK_Tutorial/Lesson12/55.png"
+        title="/img/STK_Tutorial/Lesson12/55.png" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-03-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/posts/stk_lesson12_volumetrics_task/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" data-title="【STK11官方Tutorial学习笔记】Lesson12: 体积任务" data-hashtags="STK,卫星通信"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" data-hashtag="STK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" data-title="【STK11官方Tutorial学习笔记】Lesson12: 体积任务"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" data-title="【STK11官方Tutorial学习笔记】Lesson12: 体积任务"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/" data-title="【STK11官方Tutorial学习笔记】Lesson12: 体积任务"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/stk/">STK</a>,&nbsp;<a href="/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/">卫星通信</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/posts/stk_lesson11_coverage/" class="prev" rel="prev" title="【STK11官方Tutorial学习笔记】Lesson11：覆盖"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【STK11官方Tutorial学习笔记】Lesson11：覆盖</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/zh-cn/" target="_blank">杰斯</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/zh-cn/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
