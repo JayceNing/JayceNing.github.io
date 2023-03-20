@@ -4,7 +4,15 @@
         <link>https://bupt-ningxinyu.github.io/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/</link>
         <description>卫星通信 - 标签 - 宁同学的海克斯工坊</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nxybupt@bupt.edu.cn (杰斯)</managingEditor>
-            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Sat, 11 Mar 2023 20:21:41 &#43;0800</lastBuildDate><atom:link href="https://bupt-ningxinyu.github.io/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nxybupt@bupt.edu.cn (杰斯)</webMaster><lastBuildDate>Mon, 20 Mar 2023 20:43:04 &#43;0800</lastBuildDate><atom:link href="https://bupt-ningxinyu.github.io/zh-cn/tags/%E5%8D%AB%E6%98%9F%E9%80%9A%E4%BF%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>【STK11官方Tutorial学习笔记】Lesson13：STK 分析工具包</title>
+    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson13_stk_analyzer/</link>
+    <pubDate>Mon, 20 Mar 2023 20:43:04 &#43;0800</pubDate>
+    <author>Jayce Talis</author>
+    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson13_stk_analyzer/</guid>
+    <description><![CDATA[Lesson 13 STK Analyzer 对应官方文档：STK - Perform Trade Studies with Analyzer (agi.com) STK Analyzer： STK Analyzer()模块是一个集成的软件解决方案，通过将Phoenix Integration, In]]></description>
+</item>
+<item>
     <title>【STK11官方Tutorial学习笔记】Lesson12: 体积任务</title>
     <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson12_volumetrics_task/</link>
     <pubDate>Sat, 11 Mar 2023 20:21:41 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>Jayce Talis</author>
     <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson4_compute_access/</guid>
     <description><![CDATA[Lesson 4 Compute Access 对应官方文档：STK - Compute Access (agi.com) 本节讲述如何计算两个对象之间的访问 (Access)。该访问将会保存两个对象可以连通时相关的记录。比如空间]]></description>
-</item>
-<item>
-    <title>【STK11官方Tutorial学习笔记】Lesson3：对象属性</title>
-    <link>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/</link>
-    <pubDate>Sun, 20 Nov 2022 19:34:52 &#43;0800</pubDate>
-    <author>Jayce Talis</author>
-    <guid>https://bupt-ningxinyu.github.io/zh-cn/posts/stk_lesson3_object_properties/</guid>
-    <description><![CDATA[Lesson 3 Object Properties 对应文档：STK - Modify STK Object Properties (agi.com) 每一个 STK 对象都有与之相关的属性。本节中将以我们在 Lesson 2 中创建的 空中目标CircularSat 和地面目标 Bloomington 的]]></description>
 </item>
 </channel>
 </rss>

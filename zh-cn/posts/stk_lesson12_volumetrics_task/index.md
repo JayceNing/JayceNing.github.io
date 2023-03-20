@@ -125,6 +125,8 @@ STK支持在联网和非联网条件下导入地形。
 
 本节任务：为体积对象创建组件 (Create Components for the Volumetric Object)
 
+{{< bilibili id=BV1Zo4y1d7Jc p=15 >}}
+
 ## 插入体积对象
 
 点击 Insert > New。插入对象选择 Volumetric，插入方式选择 Insert Default。
