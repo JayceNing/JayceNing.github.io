@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Jayce&#39;s Workshop</title>
-        <link>https://bupt-ningxinyu.github.io/</link>
+        <link>https://jaycening.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>nxybupt@bupt.edu.cn (Jayce Talis)</managingEditor>
             <webMaster>nxybupt@bupt.edu.cn (Jayce Talis)</webMaster>
-            <atom:link href="https://bupt-ningxinyu.github.io/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://jaycening.github.io/index.xml" rel="self" type="application/rss+xml" />
         </channel>
 </rss>
